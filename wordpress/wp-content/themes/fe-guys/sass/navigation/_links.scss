@@ -1,0 +1,36 @@
+a {
+	color: $color__link;
+
+	&:visited {
+		color: $color__link-visited;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+
+		
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+	
+	opacity:1;
+	
+	
+	img {
+			-webkit-transition: all 150ms ease-out;
+		    -moz-transition: all 150ms ease-out;
+		    -o-transition: all 150ms ease-out;
+		    transition: all 150ms ease-out;
+	}
+
+}
+
+a:hover img {
+	opacity:0.85;
+}

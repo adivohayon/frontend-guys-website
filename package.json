@@ -1,0 +1,15 @@
+{
+  "name": "frontend-guys",
+  "version": "1.0.0",
+  "scripts": {
+  	"setup:dev" : "sh config/setup_dev.sh",
+  	"start": "docker-compose up -d",
+    "sync": "docker-osx-dev",
+  	"sass:compile": "sass wordpress/wp-content/themes/fe-guys/sass/style.scss wordpress/wp-content/themes/fe-guys/style.css",
+    "sass:watch": "sass --watch wordpress/wp-content/themes/fe-guys/sass:wordpress/wp-content/themes/fe-guys",
+    "fix-permissions:wordpress": "docker exec fe_guys_server config/fix-permissions.sh"
+  },
+  "main": "index.js",
+  "author": "Adiv Ohayon",
+  "license": "MIT"
+}

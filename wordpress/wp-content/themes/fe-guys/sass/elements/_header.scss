@@ -1,0 +1,13 @@
+header.site-header {
+	height:$height__header;
+	background-color: $color__black;
+	.site-branding {
+		height:inherit;
+		padding: 0.9rem 0 0.6rem 1.3rem;
+
+		#logo img {
+			height:100%;
+			width:auto;
+		}
+	}
+}

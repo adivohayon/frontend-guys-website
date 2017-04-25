@@ -1,0 +1,13 @@
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	span.green {
+		color: $color__primary;
+	}
+}
+
+h2 {
+	font-size:2.6rem;
+	font-weight:400;
+	color: $color__black__lighter;
+
+}
