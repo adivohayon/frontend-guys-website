@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
   	"setup:dev" : "sh config/setup_dev.sh",
+    "setup:machine": "sh config/machine-install.sh",
   	"start": "docker-compose up -d",
     "sync": "docker-osx-dev",
   	"sass:compile": "sass wordpress/wp-content/themes/fe-guys/sass/style.scss wordpress/wp-content/themes/fe-guys/style.css",
