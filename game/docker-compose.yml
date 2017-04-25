@@ -1,0 +1,10 @@
+version: '2'
+services:  
+  angular:
+    container_name: fe_guys_angular
+    build: .
+    command: "npm start"
+    ports:
+      - 4200:4200
+    volumes:
+      - ./src:/home/app/src

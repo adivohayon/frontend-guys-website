@@ -2,6 +2,7 @@
 
 set -o errexit # Exit on error
 
+eval "$(docker-machine env dev-machine)"
 
 echo 'Installing angular CLI';
 npm install -g @angular/cli
