@@ -2,8 +2,16 @@
 
 set -o errexit # Exit on error
 
-echo 'Creating Dev-Machine...';
-docker-machine create --driver virtualbox dev-machine
+# DEVMACHINE = "$(docker-machine ls -q | grep '^dev-machine$')";
+# echo ${DEVMACHINE};
+
+MACHINE="$(docker-machine ls -q | grep '^dev-machine$')"
+if [ -z "$MACHINE" ]
+then
+	echo 'Dev-Machine does not exist: Creating Dev-Machine...';
+    docker-machine create --driver virtualbox dev-machine 
+fi
+
 
 echo "Setting dev-machine in docker env";
 eval "$(docker-machine env dev-machine)"
