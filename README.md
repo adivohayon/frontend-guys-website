@@ -6,7 +6,7 @@
 3. `npm run setup:dev`
 3. Make sure `data/db.sql` exists
 
-##Development
+## Development
 * Start Machine: `docker-machine start dev-machine`
 * Stop Machine: `docker-machine stop dev-machine`
 * Set Env Variables: `docker-machine env dev-machine`
