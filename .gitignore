@@ -39,3 +39,4 @@ testem.log
 # e2e
 /game/e2e/*.js
 /game/e2e/*.map
+style.css.map
