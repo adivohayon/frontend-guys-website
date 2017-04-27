@@ -6,6 +6,19 @@
 3. `npm run setup:dev`
 3. Make sure `data/db.sql` exists
 
+##Development
+* Start Machine: `docker-machine start dev-machine`
+* Stop Machine: `docker-machine stop dev-machine`
+* Set Env Variables: `docker-machine env dev-machine`
+* Run in each new shell: `eval $(docker-machine env dev-machine)`
+* Run Portainer: `docker run portainer`
+* Sync Volumes: `docker-osx-dev`
+* Watch & Compile Sass: `npm run sass:watch`
+* Run App Containers: `docker-compose up -d`
+* Stop App Containers: `docker-compose down`
+
+
+
 
 ## Web Access
 * Website: `dev-machine:8080`  
