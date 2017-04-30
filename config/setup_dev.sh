@@ -8,7 +8,7 @@ echo 'Installing angular CLI';
 npm install -g @angular/cli
 
 echo 'Running portainer...';
-docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/
+docker run --name portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/ portainer/portainer --no-auth
 
 echo 'Compiling SASS...';
 npm run sass:compile
