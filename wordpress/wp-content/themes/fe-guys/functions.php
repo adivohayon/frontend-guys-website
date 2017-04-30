@@ -140,6 +140,11 @@ function fe_guys_scripts() {
 add_action( 'wp_enqueue_scripts', 'fe_guys_scripts' );
  
 /**
+ * Custom Menu
+ */
+require get_template_directory() . '/inc/menu.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

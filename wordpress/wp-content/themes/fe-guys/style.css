@@ -2839,7 +2839,10 @@ hr {
 
 header.site-header {
   height: 3.9rem;
-  background-color: #2F2F2F; }
+  background-color: #2F2F2F;
+  position: fixed;
+  width: 100%;
+  z-index: 99; }
   header.site-header .site-branding {
     height: inherit;
     padding: 0.9rem 0 0.6rem 1.3rem; }
@@ -2969,7 +2972,7 @@ a {
   a:hover, a:focus, a:active {
     color: midnightblue; }
   a:focus {
-    outline: thin dotted; }
+    outline: 0; }
   a:hover, a:active {
     outline: 0; }
   a img {
@@ -3043,8 +3046,10 @@ a:hover img {
   .main-navigation .current-menu-item > a,
   .main-navigation .current_page_ancestor > a,
   .main-navigation .current-menu-ancestor > a,
+  .main-navigation .menu-item.active > a,
   .main-navigation a:hover {
-    font-weight: 500; }
+    font-weight: 500;
+    border-bottom: 2px solid #40BF83; }
 
 /* Small menu. */
 .menu-toggle,

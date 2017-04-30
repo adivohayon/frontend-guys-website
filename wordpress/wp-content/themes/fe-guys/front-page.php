@@ -18,7 +18,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 			<div id="fullpage" class="container-fluid">
 				<?php get_template_part( 'template-parts/front-page/hello'); ?>
-				<?php get_template_part( 'template-parts/front-page/be-a-frontend-guy'); ?>
+				<?php get_template_part( 'template-parts/front-page/design-and-development'); ?>
 				<?php get_template_part( 'template-parts/front-page/latest-projects'); ?>
 				<?php get_template_part( 'template-parts/front-page/tech'); ?>
 				<?php get_template_part( 'template-parts/front-page/your-project'); ?>

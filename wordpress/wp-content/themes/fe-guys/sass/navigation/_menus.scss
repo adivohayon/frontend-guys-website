@@ -97,8 +97,10 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a,
+	.menu-item.active > a,
 	a:hover {
 		font-weight:500;
+		border-bottom:2px solid $color__primary;
 	}
 }
 

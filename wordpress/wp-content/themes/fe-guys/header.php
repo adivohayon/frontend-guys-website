@@ -32,7 +32,8 @@
 
 		<nav id="site-navigation" class="main-navigation col-sm-8 col-xs-12" role="navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'fe-guys' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'walker' => new Nav_Main_Walker() ) ); ?>
+			<?php //wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu') ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
