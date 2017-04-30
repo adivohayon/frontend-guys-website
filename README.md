@@ -18,6 +18,14 @@
 * Stop App Containers: `docker-compose down`
 
 
+## NPM Scripts  
+* `npm run start`  
+* `npm run stop`  
+* `npm run wordpress:backup` 
+* `npm run wordpress:restore` 
+* `npm run wordpress:fix-permissions`
+
+
 
 
 ## Web Access

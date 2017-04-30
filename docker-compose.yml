@@ -7,23 +7,33 @@ services:
       - 8080:80
       - 443:443
     volumes:
+      #-------------------------Misc--------------------------
       - ./data:/data
-      - ./wordpress/wp-content/themes/fe-guys:/app/wp-content/themes/fe-guys #Theme
-      # - ./wordpress/wp-content/plugins/advanced-custom-fields:/app/wp-content/plugins/advanced-custom-fields #Plugin
-      # - ./wordpress/wp-content/plugins/custom-post-type-ui:/app/wp-content/plugins/custom-post-type-ui #Plugin
-      # - ./wordpress/wp-content/plugins/masterslider:/app/wp-content/plugins/masterslider #Plugin
-      # - ./wordpress/wp-content/plugins/page-scroll-to-id:/app/wp-content/plugins/page-scroll-to-id #Plugin
-      # - ./wordpress/wp-content/plugins/simple-custom-post-order:/app/wp-content/plugins/simple-custom-post-order #Plugin
-      # - ./wordpress/wp-content/plugins/simple-image-sizes:/app/wp-content/plugins/simple-image-sizes #Plugin
-      - ./wordpress/wp-content/uploads:/app/wp-content/uploads #Uploads
+      - ./scripts:/scripts
+      #-------------------------------------------------------
+
+      #------------------------Themes-------------------------
+      - ./wordpress/wp-content/themes/fe-guys:/app/wp-content/themes/fe-guys
+      #-------------------------------------------------------
+
+      #------------------------Plugins------------------------
+      - ./wordpress/wp-content/plugins/custom-post-type-ui:/app/wp-content/plugins/custom-post-type-ui 
+      - ./wordpress/wp-content/plugins/advanced-custom-fields:/app/wp-content/plugins/advanced-custom-fields 
+      - ./wordpress/wp-content/plugins/simple-image-sizes:/app/wp-content/plugins/simple-image-sizes
+      - ./wordpress/wp-content/plugins/contact-form-7:/app/wp-content/plugins/contact-form-7
+      - ./wordpress/wp-content/plugins/google-analytics-dashboard-for-wp:/app/wp-content/plugins/google-analytics-dashboard-for-wp
+      #-------------------------------------------------------
+
+      #------------------------Uploads------------------------
+      - ./wordpress/wp-content/uploads:/app/wp-content/uploads 
+      #-------------------------------------------------------
     environment:
-      # PLUGINS: >-
-      #   [local]advanced-custom-fields,
-      #   [local]custom-post-type-ui,
-      #   [local]masterslider,
-      #   [local]page-scroll-to-id,
-      #   [local]simple-custom-post-order,
-      #   [local]simple-image-sizes
+      PLUGINS: >-
+        [local]advanced-custom-fields,
+        [local]custom-post-type-ui,
+        [local]contact-form-7,
+        [local]google-analytics-dashboard-for-wp,
+        [local]simple-image-sizes
       THEMES: >-
         [local]fe-guys
       SERVER_NAME: dev-machine
