@@ -2,6 +2,7 @@
 	function initFullPage() { 
 		$('.site-header').hide();
 		$('#fullpage').fullpage({
+			verticalCentered: false,
 			anchors: ['hello', 'design-and-development', 'latest-projects', 'tech', 'your-project', 'contact-us'],
 			resize: false,	
 			// navigation:true,
@@ -20,11 +21,18 @@
 		});
 	}
 
+	var mySwiper;
+	function initSwipers() {
+		mySwiper = new Swiper ('.swiper-container', {
+			// Optional parameters
+			slidesPerView: 6,
+			loop: false
+		});
+	}
+
 	$(document).ready(function() {
 		console.log('aaaa');
 		initFullPage();
-
-
-
+		initSwipers();
 	});
 } )( jQuery );

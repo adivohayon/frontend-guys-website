@@ -1,8 +1,12 @@
+.site.container-fluid {
+	padding: 0;
+}
 header.site-header {
 	height:$height__header;
 	background-color: $color__black;
 	position: fixed;
 	width: 100%;
+	margin: 0;
 	z-index:99;
 	.site-branding {
 		height:inherit;

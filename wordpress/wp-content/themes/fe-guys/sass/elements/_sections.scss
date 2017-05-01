@@ -1,0 +1,45 @@
+#fullpage .section {
+	padding-top:$height__header;
+
+	&#section-hello {padding-top:0;}
+}
+
+.accent-bg {background-color: $color__background-accent; }
+
+/*============================
+=            Tech            =
+============================*/
+#section-tech {
+	.content {
+		padding:1rem;
+
+		// Tags
+		.tech-tags {
+			ul {
+				list-style:none; 
+				margin:0;
+				padding:0;
+				text-align:center;
+			}
+			li {
+				display:inline-block;
+				background-color: $color__primary;
+				font-size: 1.1rem;
+				color: #fff;
+				padding: 0.5rem 3rem;
+				margin-right: 2rem;
+				border-radius: 2rem;
+
+				&:last-child {
+					margin-right:0;
+				}
+			}
+		}
+		.tech-icons {
+			height: 10rem;
+		}
+	}
+	
+}
+
+

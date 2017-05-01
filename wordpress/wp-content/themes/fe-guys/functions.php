@@ -130,6 +130,7 @@ function fe_guys_scripts() {
 	if( is_front_page() ) {
 		wp_enqueue_script('jquery', get_template_directory_uri() . '/js/vendor/jquery-3.2.1.slim.min.js', array());
 		wp_enqueue_script('fullpage-js', get_template_directory_uri() . '/js/vendor/jquery.fullpage.min.js', array('jquery'));
+		wp_enqueue_script('swiper', get_template_directory_uri() . '/js/vendor/swiper.jquery.min.js', array('jquery'), '20160501', true);
 		wp_enqueue_script('front-page', get_template_directory_uri() . '/js/front-page.js', array('fullpage-js'));
 	}
 
