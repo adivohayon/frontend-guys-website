@@ -22,6 +22,7 @@ services:
       - ./wordpress/wp-content/plugins/simple-image-sizes:/app/wp-content/plugins/simple-image-sizes
       - ./wordpress/wp-content/plugins/contact-form-7:/app/wp-content/plugins/contact-form-7
       - ./wordpress/wp-content/plugins/google-analytics-dashboard-for-wp:/app/wp-content/plugins/google-analytics-dashboard-for-wp
+      - ./wordpress/wp-content/plugins/navz-photo-gallery:/app/wp-content/plugins/navz-photo-gallery
       #-------------------------------------------------------
 
       #------------------------Uploads------------------------
@@ -33,7 +34,8 @@ services:
         [local]custom-post-type-ui,
         [local]contact-form-7,
         [local]google-analytics-dashboard-for-wp,
-        [local]simple-image-sizes
+        [local]simple-image-sizes,
+        [local]navz-photo-gallery
       THEMES: >-
         [local]fe-guys
       SERVER_NAME: dev-machine

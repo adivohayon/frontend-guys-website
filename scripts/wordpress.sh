@@ -6,6 +6,7 @@ if [ $operation = "backup" ]; then
 	docker exec fe_guys_server /bin/bash -c "sudo -u www-data wp db export /data/db.sql --allow-root "
 	docker cp fe_guys_server:/data/ .
 	echo 'Copying Uploads Folder'
+	rm -R ./wordpress/wp-content/uploads
 	docker cp fe_guys_server:/app/wp-content/uploads/ ./wordpress/wp-content
 fi
 

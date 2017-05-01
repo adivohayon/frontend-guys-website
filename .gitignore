@@ -1,7 +1,7 @@
 .sass-cache
 .DS_Store
 
-/data
+#/data
 
 # compiled output
 /game/dist

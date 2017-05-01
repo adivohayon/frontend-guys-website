@@ -6,6 +6,7 @@ docker-machine env dev-machine
 eval $(docker-machine env dev-machine)
 
 if [ $operation = "down" ]; then
+	sh scripts/wordpress.sh backup;
 	docker-compose down
 fi
 
