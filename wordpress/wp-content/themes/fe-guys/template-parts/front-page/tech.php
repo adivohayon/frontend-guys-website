@@ -16,7 +16,7 @@
 						    'hide_empty' => false,
 						) );
 						foreach ( $terms as $term ) {
-						    echo '<li>' . $term->name . '</li>';
+						    echo '<li class="tech-tag" data-term="' . $term->slug . '">' . $term->name . '</li>';
 						}
 					?>
 				</ul>
@@ -45,15 +45,21 @@
 			        	$query = new WP_Query( $args );
 			        	// The Loop
 			        	if ( $query->have_posts() ) : 
-			        		while ( $query->have_posts() ) : $query->the_post();
+			        		while ( $query->have_posts() ) : 
+			        			$query->the_post();
+			        			if ( has_post_thumbnail() ) :
 			        ?>
-								<div class="swiper-slide">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail(); ?>
-									<?php endif; ?>
-								      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2> 
-								      <!-- <p><?php the_content(); ?></p> -->
-								</div>
+									<div class="swiper-slide">
+										<?php 
+											$orientation = get_field( "image_orientation" );
+											$class = $orientation ? 'class="' . $orientation . '" ' : '';
+										?>
+										<a href="#" title="<?php echo get_the_title();?>" <?php echo $class; ?>>
+											<?php the_post_thumbnail(); ?>
+										</a> 
+									    <!-- <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>  -->
+									</div>
+								<?php endif; // has_post_thumbnail ?>
 			        		<?php 
 			        		endwhile; 
 			        		wp_reset_postdata();

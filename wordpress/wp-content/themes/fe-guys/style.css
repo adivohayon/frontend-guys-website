@@ -3455,6 +3455,10 @@ img {
   max-width: 100%;
   /* Adhere to container width. */ }
 
+img.landscape, .landscape img {
+  max-height: 100%;
+  width: auto; }
+
 figure {
   margin: 1em 0;
   /* Extra wide images within figure tags don't overflow the content area. */ }
@@ -3476,6 +3480,8 @@ table {
 ============================*/
 #section-tech .content {
   padding: 1rem; }
+  #section-tech .content .tech-tags .tech-tag {
+    cursor: pointer; }
   #section-tech .content .tech-tags ul {
     list-style: none;
     margin: 0;
@@ -3492,7 +3498,15 @@ table {
     #section-tech .content .tech-tags li:last-child {
       margin-right: 0; }
   #section-tech .content .tech-icons {
-    height: 10rem; }
+    height: 10rem;
+    margin-top: 3rem; }
+    #section-tech .content .tech-icons .swiper-slide a {
+      display: block;
+      height: 6.5rem;
+      text-align: center; }
+    #section-tech .content .tech-icons .swiper-slide img {
+      height: 100%;
+      width: auto; }
 
 /*--------------------------------------------------------------
 # Forms
@@ -3576,7 +3590,10 @@ textarea {
 --------------------------------------------------------------*/
 a {
   color: royalblue;
-  opacity: 1; }
+  opacity: 1;
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  transform: rotate(0); }
   a:visited {
     color: purple; }
   a:hover, a:focus, a:active {
@@ -3589,10 +3606,12 @@ a {
     -webkit-transition: all 150ms ease-out;
     -moz-transition: all 150ms ease-out;
     -o-transition: all 150ms ease-out;
-    transition: all 150ms ease-out; }
+    transition: all 150ms ease-out;
+    -webkit-backface-visibility: hidden; }
 
 a:hover img {
-  opacity: 0.85; }
+  opacity: 0.85;
+  position: relative; }
 
 /*--------------------------------------------------------------
 ## Menus

@@ -12,6 +12,7 @@
 * Set Env Variables: `docker-machine env dev-machine`
 * Run in each new shell: `eval $(docker-machine env dev-machine)`
 * Run Portainer: `docker run portainer`
+* Run Kimai Time-Tracker: `docker run -d --name=kimai -p 80:80 21plus2/kimai`
 * Sync Volumes: `docker-osx-dev`
 * Watch & Compile Sass: `npm run sass:watch`
 * Run App Containers: `docker-compose up -d`
@@ -19,11 +20,12 @@
 
 
 ## NPM Scripts  
-* `npm run start`  
-* `npm run stop`  
-* `npm run wordpress:backup` 
-* `npm run wordpress:restore` 
-* `npm run wordpress:fix-permissions`
+* Start/Stop Dev Environment: `npm run dev:start` | `npm run dev:stop`  
+* Start/Stop App: `npm run app:start` | `npm run app:stop`  
+* Backup/Restore Wordpress DB:  
+`npm run wordpress:backup` | `npm run wordpress:restore`  
+*DB restores automatically when starting app
+* Fix Permissions: `npm run wordpress:fix-permissions`
 
 
 

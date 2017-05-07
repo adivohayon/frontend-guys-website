@@ -8,8 +8,10 @@ services:
       - 443:443
     volumes:
       #-------------------------Misc--------------------------
-      - ./data:/data
+      - ./data/wordpress:/data
       - ./scripts:/scripts
+      # - ./wordpress/wp-content/wp-settings.php:/app/wp-content/wp-settings.php
+      # - ./wordpress/wp-content/.htaccess:/app/wp-content/.htaccess
       #-------------------------------------------------------
 
       #------------------------Themes-------------------------
@@ -29,6 +31,7 @@ services:
       #------------------------Uploads------------------------
       - ./wordpress/wp-content/uploads:/app/wp-content/uploads 
       #-------------------------------------------------------
+
     environment:
       PLUGINS: >-
         [local]advanced-custom-fields,

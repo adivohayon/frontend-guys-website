@@ -15,6 +15,10 @@
 
 		// Tags
 		.tech-tags {
+			.tech-tag {
+				cursor:pointer;
+			}
+
 			ul {
 				list-style:none; 
 				margin:0;
@@ -37,6 +41,24 @@
 		}
 		.tech-icons {
 			height: 10rem;
+			margin-top:3rem;
+			.swiper-slide {
+				a {
+					display: block;
+					height: 6.5rem;
+					text-align: center;
+
+					&.landscape {
+
+					}
+				}
+				
+				img {
+					height: 100%;
+					width: auto;
+				}
+				// .landscape img {height:100%; width:auto;}
+			}
 		}
 	}
 	
