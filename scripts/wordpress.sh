@@ -1,5 +1,5 @@
 operation=$1;
-
+eval $(docker-machine env dev-machine)
 echo $operation;
 if [ $operation = "backup" ]; then
 	echo "Backing up wordpress database...";
@@ -16,5 +16,6 @@ if [ $operation = "restore" ]; then
 fi
 
 if [ $operation = "fix-permissions" ]; then
+	echo "Fixing File and Directory Permissions..."
 	docker exec fe_guys_server /bin/sh -c "sh /scripts/fix-permissions.sh"
 fi

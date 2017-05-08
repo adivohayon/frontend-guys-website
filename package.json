@@ -8,7 +8,7 @@
     "dev:stop": "sh scripts/dev.sh stop",
   	"app:start": "sh scripts/app.sh start",
     "app:stop": "sh scripts/app.sh stop",
-    "app:sync": "docker-osx-dev",
+    "app:sync": "sh scripts/app.sh sync",
   	"sass:compile": "sass wordpress/wp-content/themes/fe-guys/sass/style.scss wordpress/wp-content/themes/fe-guys/style.css",
     "sass:watch": "sass --watch wordpress/wp-content/themes/fe-guys/sass:wordpress/wp-content/themes/fe-guys",
     "wordpress:fix-permissions": "sh scripts/wordpress.sh fix-permissions",
