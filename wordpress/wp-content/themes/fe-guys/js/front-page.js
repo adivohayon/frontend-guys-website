@@ -21,6 +21,7 @@
 		          	}
 		      	},
 			autoScrolling: false,
+			fitToSection: false
 		});
 	}
 	/*===============================================
