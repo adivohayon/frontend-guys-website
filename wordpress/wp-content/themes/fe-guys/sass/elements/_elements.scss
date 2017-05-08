@@ -28,6 +28,8 @@ hr {
 	margin-bottom: 1.5em;
 }
 
+@import "helpers";
+
 @import "header";
 
 @import "lists";
@@ -37,10 +39,7 @@ img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
 }
-img.landscape, .landscape img {
-	max-height:100%;
-	width:auto;
-}
+
 
 figure {
 	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */

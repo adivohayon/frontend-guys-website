@@ -31,45 +31,8 @@
 			    <!-- Additional required wrapper -->
 			    <div class="swiper-wrapper">
 			        <!-- Slides -->
-			        <?php
-			        	$args = array(
-			        		'post_type' => 'tech',
-			        		'tax_query' => array(
-			        			array(
-			        				'taxonomy' => 'tech_categories',
-			        				'field'    => 'slug',
-			        				'terms'    => 'development',
-			        			),
-			        		),
-			        	);
-			        	$query = new WP_Query( $args );
-			        	// The Loop
-			        	if ( $query->have_posts() ) : 
-			        		while ( $query->have_posts() ) : 
-			        			$query->the_post();
-			        			if ( has_post_thumbnail() ) :
-			        ?>
-									<div class="swiper-slide">
-										<?php 
-											$orientation = get_field( "image_orientation" );
-											$class = $orientation ? 'class="' . $orientation . '" ' : '';
-										?>
-										<a href="#" title="<?php echo get_the_title();?>" <?php echo $class; ?>>
-											<?php the_post_thumbnail(); ?>
-										</a> 
-									    <!-- <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>  -->
-									</div>
-								<?php endif; // has_post_thumbnail ?>
-			        		<?php 
-			        		endwhile; 
-			        		wp_reset_postdata();
-			        		?>
-			 			<?php else : ?>
-			 				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-			 			<?php endif; ?>
+			       
 			    </div>
-			    <!-- If we need pagination -->
-			    <div class="swiper-pagination"></div>
 			    
 			    <!-- If we need navigation buttons -->
 			    <div class="swiper-button-prev"></div>
