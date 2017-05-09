@@ -19,6 +19,11 @@
 		padding:1rem;
 	}
 
+	.fp-slides {
+		margin-top:-$height_h2; padding-top: $height_h2;
+		.slide {position: relative;}
+	}
+
 }
 
 
@@ -97,9 +102,9 @@
 	//Project display container
 	.project-display {
 		position: absolute;
-	    bottom: 0; right: 0;
+	    bottom: 0; left: 42vw;
 	    text-align: center;
-	    
+	    max-width: 58.3333vw;
 	    img.display-screen  {
 	    	width: 75%;
 	    	max-height: 70vh;

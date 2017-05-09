@@ -5672,7 +5672,10 @@ h2 {
   font-size: 2.6rem;
   font-weight: 400;
   color: #444444;
-  text-align: center; }
+  text-align: center;
+  height: 5rem;
+  margin: 0;
+  line-height: 2; }
 
 p {
   margin-bottom: 1.5em; }
@@ -5821,6 +5824,11 @@ table {
       color: #ffffff; }
   #fullpage .section .content {
     padding: 1rem; }
+  #fullpage .section .fp-slides {
+    margin-top: -5rem;
+    padding-top: 5rem; }
+    #fullpage .section .fp-slides .slide {
+      position: relative; }
 
 /*=============================
 =            Hello            =
@@ -5865,8 +5873,9 @@ table {
 #section-latest-projects .project-display {
   position: absolute;
   bottom: 0;
-  right: 0;
-  text-align: center; }
+  left: 42vw;
+  text-align: center;
+  max-width: 58.3333vw; }
   #section-latest-projects .project-display img.display-screen {
     width: 75%;
     max-height: 70vh; }
