@@ -28,9 +28,5 @@ if [ $operation = "stop" ]; then
 	echo "${red}All App containers have been stopped and removed.${end}"
 fi
 
-# --------------------SYNC FILES--------------------
-if [ $operation = "sync" ]; then
-	sh scripts/wordpress.sh fix-permissions;
-	docker-osx-dev
-fi
+
 

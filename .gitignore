@@ -40,3 +40,7 @@ testem.log
 /game/e2e/*.js
 /game/e2e/*.map
 style.css.map
+
+
+/logs
+nohup.out

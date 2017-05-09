@@ -4,16 +4,24 @@
   "scripts": {
   	"setup:dev" : "sh scripts/setup_dev.sh",
     "setup:machine": "sh scripts/machine-install.sh",
+    
     "dev:start": "sh scripts/dev.sh start",
     "dev:stop": "sh scripts/dev.sh stop",
-  	"app:start": "sh scripts/app.sh start",
+    "dev:sync-start": "sh scripts/dev.sh sync-start",
+    "dev:sync-stop": "sh scripts/dev.sh sync-stop",
+    "dev:sass-start": "sh scripts/dev.sh sass-start",
+    "dev:sass-stop": "sh scripts/dev.sh sass-stop",
+  	
+    "app:start": "sh scripts/app.sh start",
     "app:stop": "sh scripts/app.sh stop",
-    "app:sync": "sh scripts/app.sh sync",
-  	"sass:compile": "sass wordpress/wp-content/themes/fe-guys/sass/style.scss wordpress/wp-content/themes/fe-guys/style.css",
-    "sass:watch": "sass --watch wordpress/wp-content/themes/fe-guys/sass:wordpress/wp-content/themes/fe-guys",
+
+    
     "wordpress:fix-permissions": "sh scripts/wordpress.sh fix-permissions",
     "wordpress:backup" : "sh scripts/wordpress.sh backup",
-    "wordpress:restore": "sh scripts/wordpress.sh restore"
+    "wordpress:restore": "sh scripts/wordpress.sh restore",
+    "wordpress:sass-start": "sh scripts/wordpress.sh sass-start",
+    "wordpress:sass-stop": "sh scripts/wordpress.sh sass-stop",
+    "wordpress:sass-compile": "sh scripts/wordpress.sh sass-compile"
   },
   "main": "index.js",
   "author": "Adiv Ohayon",
