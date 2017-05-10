@@ -42,5 +42,6 @@ testem.log
 style.css.map
 
 
-/logs
+/logs/wordpress-sass.log
+/logs/wordpress-sass_pid.txt
 nohup.out
