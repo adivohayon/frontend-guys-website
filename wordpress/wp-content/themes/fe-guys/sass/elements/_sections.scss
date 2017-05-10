@@ -27,17 +27,70 @@
 	/*=============================
 	=            Hello            =
 	=============================*/
-	#section-hello {
+	&#section-hello {
 		padding-top:0;
 		background-size:cover;
 		background-position:bottom center;
+
+		#frontend-guys-logo {
+			width: 100%;
+		    height: 7.14rem;
+		    margin-top: 2.14rem;
+		    margin-bottom: 1.2rem;
+		}
+
+		h2 {
+			font-family: 'Pacifico', cursive;
+		    color: #FF7575;
+		    font-size: 2rem;
+		    background-color: $color__black__lighter;
+		    width: 40%;
+		    margin: auto;
+		    height: initial;
+		    z-index: 9999;
+		}
+
+		.typed-cursor{
+			opacity: 1;
+			-webkit-animation: blink 0.7s infinite;
+			-moz-animation: blink 0.7s infinite;
+			animation: blink 0.7s infinite;
+		}
+		
+		.visuals {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+
+			#orange-juice {
+				position: absolute;
+			    bottom: 2rem;
+			    left: 2rem;
+			}	
+			.laptop-screen {
+				position: absolute;
+			    bottom: 3rem;
+			    left: 2rem;
+			}
+			.large-screen {
+				position: absolute;
+			    bottom: 6rem;
+			    right: 1rem;
+			}
+			#mouse-3d {
+				position: absolute;
+	    		bottom: 1rem;
+	    		right: 22rem;
+			}
+		}
 	}
 
-	
+
 	/*============================
 	=            Tech            =
 	============================*/
-	#section-tech {
+	&#section-tech {
 		// Tags
 		.tech-tags {
 			.tech-tag {
@@ -90,7 +143,7 @@
 	/*=======================================
 	=            Latest Projects            =
 	=======================================*/
-	#section-latest-projects {
+	&#section-latest-projects {
 
 		//Details container
 		.project-details {

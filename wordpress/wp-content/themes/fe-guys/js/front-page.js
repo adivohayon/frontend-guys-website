@@ -24,6 +24,19 @@
 			fitToSection: false
 		});
 	}
+
+	/*===============================================
+	=            Hello Section 			            =
+	===============================================*/
+	function initHello() {
+		$("#section-hello h2 span").typed({
+			strings: ["Developers turned Designers", "Designers turned Developers"],
+			typeSpeed: 30,
+			loop: true,
+			startDelay: 1500,
+			backDelay: 2000
+		});
+	}
 	/*===============================================
 	=            Latest Projects Section            =
 	===============================================*/
@@ -130,6 +143,7 @@
 
 	$(document).ready(function() {
 		initFullPage();
+		initHello();
 		initAllSliders();
 		initTechTags();
 		// getTechByCategory();
