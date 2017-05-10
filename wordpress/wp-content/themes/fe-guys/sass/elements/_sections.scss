@@ -24,130 +24,135 @@
 		.slide {position: relative;}
 	}
 
-}
+	/*=============================
+	=            Hello            =
+	=============================*/
+	#section-hello {
+		padding-top:0;
+		background-size:cover;
+		background-position:bottom center;
+	}
 
+	
+	/*============================
+	=            Tech            =
+	============================*/
+	#section-tech {
+		// Tags
+		.tech-tags {
+			.tech-tag {
+				cursor:pointer;
+			}
 
+			ul {
+				list-style:none; 
+				margin:0;
+				padding:0;
+				text-align:center;
+			}
+			li {
+				display:inline-block;
+				background-color: $color__primary;
+				font-size: 1.1rem;
+				color: #fff;
+				padding: 0.5rem 3rem;
+				margin-right: 2rem;
+				border-radius: 2rem;
 
-
-/*=============================
-=            Hello            =
-=============================*/
-#section-hello {
-	padding-top:0;
-}
-
-/*============================
-=            Tech            =
-============================*/
-#section-tech {
-	// Tags
-	.tech-tags {
-		.tech-tag {
-			cursor:pointer;
-		}
-
-		ul {
-			list-style:none; 
-			margin:0;
-			padding:0;
-			text-align:center;
-		}
-		li {
-			display:inline-block;
-			background-color: $color__primary;
-			font-size: 1.1rem;
-			color: #fff;
-			padding: 0.5rem 3rem;
-			margin-right: 2rem;
-			border-radius: 2rem;
-
-			&:last-child {
-				margin-right:0;
+				&:last-child {
+					margin-right:0;
+				}
 			}
 		}
-	}
-	//Icons
-	.tech-icons {
-		height: 10rem;
-		margin-top:3rem;
-		.swiper-slide {
-			a {
-				display: block;
-				height: 6.5rem;
-				text-align: center;
+		//Icons
+		.tech-icons {
+			height: 10rem;
+			margin-top:3rem;
+			.swiper-slide {
+				a {
+					display: block;
+					height: 6.5rem;
+					text-align: center;
+				}
+				
+				img {
+					height: 100%;
+					width: auto;
+				}
+				// .landscape img {height:100%; width:auto;}
 			}
-			
-			img {
-				height: 100%;
-				width: auto;
-			}
-			// .landscape img {height:100%; width:auto;}
-		}
-	}
-	
-	
-}
-
-
-/*=======================================
-=            Latest Projects            =
-=======================================*/
-#section-latest-projects {
-
-	//Details container
-	.project-details {
-
-	}
-	
-	//Project display container
-	.project-display {
-		position: absolute;
-	    bottom: 0; left: 42vw;
-	    text-align: center;
-	    max-width: 58.3333vw;
-	    img.display-screen  {
-	    	width: 75%;
-	    	max-height: 70vh;
-	    }
-
-		.swiper-container {
-			background-color: white;
-			position: absolute;
-			height: 61%; width: 70%;
-			bottom: 34%; left: 50%;
-			transform: translate(-50%, 0);
-			max-width: 78vh;
 		}
 		
-		.pagination-container {
-			color: #ffffff; 
-			height: 2rem; width: 30%;
-			min-width: 13rem;
-			margin: 0 auto;
+		
+	}
+
+
+	/*=======================================
+	=            Latest Projects            =
+	=======================================*/
+	#section-latest-projects {
+
+		//Details container
+		.project-details {
+
+		}
+		
+		//Project display container
+		.project-display {
 			position: absolute;
-			top: -2rem;
-			left: 0; right: 0;
-			.swiper-prev {
-				float:left;
+		    bottom: 0; left: 42vw;
+		    text-align: center;
+		    max-width: 58.3333vw;
+		    img.display-screen  {
+		    	width: 75%;
+		    	max-height: 70vh;
+		    }
+
+			.swiper-container {
+				background-color: white;
+				position: absolute;
+				height: 61%; width: 70%;
+				bottom: 34%; left: 50%;
+				transform: translate(-50%, 0);
+				max-width: 78vh;
 			}
-			.swiper-pagination {
-				margin:0 auto;
-				left:0; right:0;
-				line-height: 1.8rem;
-			}
-			.swiper-next {
-				float:right;
-			}
-			.swiper-next, .swiper-prev {
-				width: 2rem;
-				height: 2rem;
-				cursor:pointer;
-				position:relative;
-				z-index: 15;
-				i {font-size:1.35rem;}
+			
+			.pagination-container {
+				color: #ffffff; 
+				height: 2rem; width: 30%;
+				min-width: 13rem;
+				margin: 0 auto;
+				position: absolute;
+				top: -2rem;
+				left: 0; right: 0;
+				.swiper-prev {
+					float:left;
+				}
+				.swiper-pagination {
+					margin:0 auto;
+					left:0; right:0;
+					line-height: 1.8rem;
+				}
+				.swiper-next {
+					float:right;
+				}
+				.swiper-next, .swiper-prev {
+					width: 2rem;
+					height: 2rem;
+					cursor:pointer;
+					position:relative;
+					z-index: 15;
+					i {font-size:1.35rem;}
+				}
+
 			}
 
 		}
-
 	}
+
 }
+
+
+
+
+
