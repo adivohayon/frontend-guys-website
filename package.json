@@ -5,12 +5,12 @@
   	"setup:dev" : "sh scripts/setup_dev.sh",
     "setup:machine": "sh scripts/machine-install.sh",
     
-    "dev:start": "sh scripts/dev.sh start",
-    "dev:stop": "sh scripts/dev.sh stop",
-    "dev:sync-start": "sh scripts/dev.sh sync-start",
-    "dev:sync-stop": "sh scripts/dev.sh sync-stop",
-    "dev:sass-start": "sh scripts/dev.sh sass-start",
-    "dev:sass-stop": "sh scripts/dev.sh sass-stop",
+    "dev:start": ". scripts/dev.sh start",
+    "dev:stop": ". scripts/dev.sh stop",
+    "dev:sync": ". scripts/dev.sh sync-start",
+    "dev:sass-start": ". scripts/dev.sh sass-start",
+    "dev:sass-stop": ". scripts/dev.sh sass-stop",
+    "dev:setup-env": ". scripts/dev.sh setup-env",
   	
     "app:start": "sh scripts/app.sh start",
     "app:stop": "sh scripts/app.sh stop",

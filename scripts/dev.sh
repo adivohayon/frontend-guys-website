@@ -98,13 +98,15 @@ function dockerCleanup {
 
 	function startSync {
 		echo "Syncing files..."
-		runInBackground 'docker-osx-dev' 'docker-osx-dev'
+		ttab -t 'Sync: docker-osx-dev' -G 'eval $(docker-machine env dev-machine); docker-osx-dev;'
+		echo "${yel}Opening docker-osx-dev in new tab...${end}"
+		read  -n 1 -p "Press any key once it's loaded to continue.." mainmenuinput
 	}
 
-	function stopSync {
-		echo 'Stopping Files Sync...'
-		stopBackgroundProcess 'docker-osx-dev'
-	}
+	# function stopSync {
+	# 	echo 'Stopping Files Sync...'
+	# 	stopBackgroundProcess 'docker-osx-dev'
+	# }
 # --------------------END Other Functions--------------------
 
 
@@ -117,13 +119,13 @@ if [ $operation = "start" ]; then
 		docker-machine start dev-machine
 	fi
 	
+	startSync
 	setupEnv
-
 	startUtilities
 
 	echo "Starting App..."
 	#startSync
-	sh scripts/app.sh start
+	. scripts/app.sh start
 	startSass
 fi
 # --------------------------------------------------------------
@@ -136,7 +138,7 @@ if [ $operation = "stop" ]; then
 	stopSync
 
 	echo "Gracefully stop apps container and backup databases."
-	sh scripts/app.sh stop
+	. scripts/app.sh stop
 
 	stopUtilities
 
@@ -153,9 +155,9 @@ if [ $operation = "sync-start" ]; then
 	startSync
 fi
 
-if [ $operation = "sync-stop" ]; then
-	stopSync
-fi
+# if [ $operation = "sync-stop" ]; then
+# 	stopSync
+# fi
 
 if [ $operation = "sass-start" ]; then
 	startSass
@@ -163,6 +165,10 @@ fi
 
 if [ $operation = "sass-stop" ]; then
 	stopSass
+fi
+
+if [ $operation = "setup-env" ]; then
+	setupEnv
 fi
 
 

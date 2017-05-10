@@ -19,6 +19,9 @@ if [ $operation = "start" ]; then
 	echo "${grn}Wordpress running on${end} ${cyn}dev-machine${end}:${yel}8080${end}"
 	echo "${grn}PHPMyAdmin running on${end} ${cyn}dev-machine${end}:${yel}22222${end}"
 	echo "${grn}Angular App running on${end} ${cyn}dev-machine${end}:${yel}4200${end}"
+
+	read  -n 1 -p "Once Wordpress is loaded, press any key to fix-permissions..." mainmenuinput
+	npm run wordpress:fix-permissions
 fi
 
 # --------------------STOP App Containers and Backup--------------------
