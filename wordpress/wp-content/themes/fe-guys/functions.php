@@ -34,7 +34,7 @@ function fe_guys_setup() {
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
-
+	
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
@@ -78,7 +78,10 @@ function fe_guys_setup() {
 	}
 	add_filter( 'nav_menu_link_attributes', 'add_menu_atts', 10, 3 );
 
-	
+	//Custom Image Sizes
+	add_image_size( 'desktop-screenshots', 800, 442, array('center', 'top'));
+	// add_image_size( 'tablet-screenshots', 800, 437, array('center', 'top'));
+	// add_image_size( 'phone-screenshots', 800, 437, array('center', 'top'));
 }
 endif;
 add_action( 'after_setup_theme', 'fe_guys_setup' );

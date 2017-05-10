@@ -21,7 +21,7 @@ services:
       #------------------------Plugins------------------------
       - ./wordpress/wp-content/plugins/custom-post-type-ui:/app/wp-content/plugins/custom-post-type-ui 
       - ./wordpress/wp-content/plugins/advanced-custom-fields:/app/wp-content/plugins/advanced-custom-fields 
-      - ./wordpress/wp-content/plugins/simple-image-sizes:/app/wp-content/plugins/simple-image-sizes
+      - ./wordpress/wp-content/plugins/regenerate-thumbnails:/app/wp-content/plugins/regenerate-thumbnails
       - ./wordpress/wp-content/plugins/contact-form-7:/app/wp-content/plugins/contact-form-7
       - ./wordpress/wp-content/plugins/google-analytics-dashboard-for-wp:/app/wp-content/plugins/google-analytics-dashboard-for-wp
       - ./wordpress/wp-content/plugins/navz-photo-gallery:/app/wp-content/plugins/navz-photo-gallery
@@ -39,7 +39,7 @@ services:
         [local]custom-post-type-ui,
         [local]contact-form-7,
         [local]google-analytics-dashboard-for-wp,
-        [local]simple-image-sizes,
+        [local]regenerate-thumbnails,
         [local]navz-photo-gallery,
         [local]simple-custom-post-order,
         [local]duplicate-post
