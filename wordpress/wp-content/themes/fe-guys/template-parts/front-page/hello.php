@@ -19,6 +19,7 @@
 
 		<img class="display-screen large-screen" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/large-screen.svg' ?>" alt="Large Screen">
 		<img id="mouse-3d" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/mouse-3d.svg' ?>" alt="Mouse 3D">
+		<img id="mouse-scroll-down" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/mouse-scroll-down.svg' ?>" alt="Mouse Scroll Down">
 	</div>
 	
 </div><!-- #section-hello -->

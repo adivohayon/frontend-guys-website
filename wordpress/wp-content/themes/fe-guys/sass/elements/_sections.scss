@@ -48,6 +48,7 @@
 		    margin: auto;
 		    height: initial;
 		    z-index: 9999;
+		    position: relative;
 		}
 
 		.typed-cursor{
@@ -65,23 +66,36 @@
 
 			#orange-juice {
 				position: absolute;
-			    bottom: 2rem;
-			    left: 2rem;
+			    bottom: 12rem;
+			    left: -1rem;
 			}	
 			.laptop-screen {
 				position: absolute;
-			    bottom: 3rem;
+			    bottom: 8rem;
 			    left: 2rem;
 			}
 			.large-screen {
 				position: absolute;
-			    bottom: 6rem;
+			    bottom: 8rem;
 			    right: 1rem;
+			    max-height: 60vh;
 			}
 			#mouse-3d {
 				position: absolute;
-	    		bottom: 1rem;
+	    		bottom: 2rem;
 	    		right: 22rem;
+			}
+			#mouse-scroll-down {
+				position: absolute;
+			    bottom: 2rem;
+			    right: 19rem;
+			    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    			animation: mymove 5s infinite;
+			}
+			@keyframes mymove {
+				0% {bottom: 2rem; opacity:1;}
+				50% {bottom: 1rem; opacity:0.4;}
+				100% {bottom: 2rem; opacity:1;}
 			}
 		}
 	}
