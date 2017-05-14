@@ -19,32 +19,59 @@
 		if ( $query->have_posts() ) : 
 			while ( $query->have_posts() ) : 
 				$query->the_post();
+				
+				$images = acf_photo_gallery('screenshots', $post->ID);
+				
+				$videos = array();
+				if ( get_field("video-1") ) {
+					array_push($videos, get_field("video-1"));
+				}
+				if ( get_field("video-2") ) {
+					array_push($videos, get_field("video-2"));
+				}
+				if ( get_field("video-3") ) {
+					array_push($videos, get_field("video-3"));
+				}
+				if ( get_field("video-4") ) {
+					array_push($videos, get_field("video-4"));
+				}
+
 	?>
-				<div class="slide">
+				<div class="slide" id="project-<?php echo $post->ID; ?>" data-anchor="<?php echo $post->post_name; ?>">
 					<div class="col-xs-5 project-details">
-							<?php the_content(); ?>
+						<div class="project-id hidden"><?php echo $post->ID ?></div>
+						<?php the_content(); ?>
+						<div class="project-assets-navigation">
+							<ul>
+								<?php
+									if ( count($images) ) {
+										echo '<li><a href="project/screenshots" title="Screenshots" data-attr="screenshots">Screenshots</a></li>';
+									}
+
+									
+									if ( count($videos) ) {
+										echo '<li><a href="project/videos" title="Videos" data-attr="videos">Videos</a></li>';
+									}
+								?>
+							</ul>
 						</div>
+					</div>
 
-						<div class="col-xs-7 project-display">
-							<div class="pagination-container">
-								<div class="swiper-prev">
-									<i class="fa fa-caret-left" aria-hidden="true"></i>
-								</div>
-								<div class="swiper-pagination"></div>
-								<div class="swiper-next">
-									<i class="fa fa-caret-right" aria-hidden="true"></i>
-								</div>
-							</div>
+					<div class="col-xs-7 project-display">
+						
 
+						
+
+						<div class="visual desktop-screen">
 							<img class="display-screen large-screen" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/large-screen.svg' ?>" alt="Large Monitor">
-							<div class="swiper-container">
+							<div class="screen-content swiper-container">
 								
 								
 								
 								<div class="swiper-wrapper">
 									<?php
 									    //Get the images ids from the post_metadata
-									    $images = acf_photo_gallery('screenshots', $post->ID);
+									    
 									    //Check if return array has anything in it
 									    if( count($images) ):
 									        //Cool, we got some data so now let's loop over it
@@ -76,16 +103,27 @@
 									?>
 								</div>
 							</div>
+
+							<div class="top-position pagination-container">
+								<div class="swiper-prev">
+									<i class="fa fa-caret-left" aria-hidden="true"></i>
+								</div>
+								<div class="swiper-pagination"></div>
+								<div class="swiper-next">
+									<i class="fa fa-caret-right" aria-hidden="true"></i>
+								</div>
+							</div>
 						</div>
+					</div>
 				</div>
 
        		<?php 
        		endwhile; 
        		wp_reset_postdata();
        		?>
-		<?php else : ?>
-			<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-		<?php endif; ?>
+	<?php else : ?>
+		<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+	<?php endif; ?>
 
 </div><!-- #section-latest-projects -->
 

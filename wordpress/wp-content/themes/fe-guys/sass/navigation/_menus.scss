@@ -139,3 +139,18 @@
 		width: 50%;
 	}
 }
+
+.project-assets-navigation {
+	ul {
+		list-style: none;
+	}
+	li {
+		margin-top:1rem;
+	}
+	a {
+		font-family: 'Roboto', sans-serif;
+		font-weight:300;
+		font-size:1.3rem
+
+	}
+}

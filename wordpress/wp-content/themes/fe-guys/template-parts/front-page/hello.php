@@ -13,13 +13,44 @@
 
 	</div>
 
-	<div class="visuals">
-		<img id="orange-juice" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/orange-juice.png' ?>" alt="Orange Juice">
-		<img class="display-screen laptop-screen" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/laptop.png' ?>" alt="Laptop">
+	<div class="visuals-container-full">
+		
+		<!--====================================
+		=            Desktop-Screen            =
+		=====================================-->
+		<div class="visual desktop-screen">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/large-screen.svg' ?>" alt="Large Monitor">
+			<div class="screen-content">[CONTENT]</div>
+		</div>
 
-		<img class="display-screen large-screen" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/large-screen.svg' ?>" alt="Large Screen">
-		<img id="mouse-3d" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/mouse-3d.svg' ?>" alt="Mouse 3D">
-		<img id="mouse-scroll-down" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/mouse-scroll-down.svg' ?>" alt="Mouse Scroll Down">
+		<!--===================================
+		=            Laptop-Screen            =
+		====================================-->
+		<div class="visual laptop-screen">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/laptop.png' ?>" alt="Laptop">
+			<div class="screen-content">[CONTENT]</div>
+		</div>
+		
+		<!--==================================
+		=            Orange-Juice            =
+		===================================-->
+		<div class="visual orange-juice">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/orange-juice.png' ?>" alt="Orange Juice">
+		</div>
+		<!--==============================
+		=            Mouse-3D            =
+		===============================-->
+		<div class="visual mouse-3d">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/mouse-3d.svg' ?>" alt="Mouse 3D">
+		</div>
+		
+		<!--================================
+		=            Mouse-Scroll-Down     =
+		=================================-->
+		<div class="visual mouse-scroll-down">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/mouse-scroll-down.svg' ?>" alt="Mouse Scroll Down">
+		</div>
+		
 	</div>
 	
 </div><!-- #section-hello -->

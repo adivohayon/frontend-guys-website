@@ -58,35 +58,26 @@
 			animation: blink 0.7s infinite;
 		}
 		
-		.visuals {
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			height: 100%;
-
-			#orange-juice {
-				position: absolute;
+		.visual {
+			&.orange-juice {
 			    bottom: 12rem;
 			    left: -1rem;
 			}	
-			.laptop-screen {
-				position: absolute;
+			&.laptop-screen {
 			    bottom: 8rem;
 			    left: 2rem;
 			}
-			.large-screen {
-				position: absolute;
+			&.desktop-screen {
 			    bottom: 8rem;
 			    right: 1rem;
 			    max-height: 60vh;
+			    width:40%;
 			}
-			#mouse-3d {
-				position: absolute;
+			&.mouse-3d {
 	    		bottom: 2rem;
 	    		right: 22rem;
 			}
-			#mouse-scroll-down {
-				position: absolute;
+			&.mouse-scroll-down {
 			    bottom: 2rem;
 			    right: 19rem;
 			    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
@@ -164,34 +155,23 @@
 
 		}
 		
+		.visual {
+			&.desktop-screen {
+				bottom:0;
+				right:0;
+				width:100%;
+				max-width: 58.3333vw;
+			}
+		}
 		//Project display container
 		.project-display {
-			position: absolute;
-		    bottom: 0; left: 42vw;
-		    text-align: center;
-		    max-width: 58.3333vw;
-		    img.display-screen  {
-		    	width: 75%;
-		    	max-height: 70vh;
-		    }
+			height:100%;
 
-			.swiper-container {
-				background-color: white;
-				position: absolute;
-				height: 61%; width: 70%;
-				bottom: 34%; left: 50%;
-				transform: translate(-50%, 0);
-				max-width: 78vh;
-			}
-			
 			.pagination-container {
 				color: #ffffff; 
 				height: 2rem; width: 30%;
 				min-width: 13rem;
-				margin: 0 auto;
-				position: absolute;
-				top: -2rem;
-				left: 0; right: 0;
+				
 				.swiper-prev {
 					float:left;
 				}
