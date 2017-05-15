@@ -1,7 +1,9 @@
 ( function( $ ) {
+	var tempSelector = '';
 	/*===============================================
 	=            Fullpage Implementation            =
 	===============================================*/
+	var currentProjectSlide = 0;
 	function initFullPage() { 
 		$('.site-header').hide();
 		$('#fullpage').fullpage({
@@ -12,6 +14,24 @@
 			menu: '#primary-menu',
 			loopHorizontal: true,
 			responsiveWidth: 768,
+			lazyLoading: true,
+			afterSlideLoad: function(anchorLink, sectionIndex, slideAnchor, slideIndex) {
+				if (anchorLink == 'latest-projects') {
+					currentProjectSlide = slideIndex;
+					// console.log('Updating currentProjectSlide', currentProjectSlide);
+				}
+			},
+			onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){
+				if (anchorLink == 'latest-projects') {
+					//get next slide's project id
+					// console.log('nextSlideIndex', nextSlideIndex);
+					//load next slide via ajax
+					// getAssetsByProject(projectId).done(function(assets) {
+					// 	console.log('assets', assets);
+					// });
+					//append data to dom
+				}
+			},
 			onLeave: function(index, nextIndex){
 		          	if(nextIndex == 1){
 		               $('.site-header').hide();
@@ -42,6 +62,7 @@
 	===============================================*/
 	//Project Display Slider
 	var projectDisplaySlider;
+	var currentAssetTypeTitle = 'Screenshots';
 	function setupProjectDisplaySlider() {
 		projectDisplaySlider = new Swiper ('.project-display .swiper-container', {
 			// Optional parameters
@@ -52,13 +73,90 @@
 	        pagination: '.project-display .swiper-pagination',
 	        paginationType: 'fraction',
 	        paginationFractionRender: function (swiper, currentClassName, totalClassName) {
-				return 	'Screenshots ' +
+				return 	'<span class="asset-type">' + currentAssetTypeTitle + '</span> ' +
 						'(<span class="' + currentClassName + '"></span>' +
 						' / ' +
 						'<span class="' + totalClassName + '"></span>)';
 			}
 		});
 	}
+
+	function getAssetsByProject(projectId, assetType) {
+		var payload = {
+			action: 'project_assets',
+			security: wpAjaxObj.security,
+			project_id: projectId,
+			asset_type: assetType ? assetType : false
+		};
+		// console.log('payload', payload);
+
+		return $.ajax({
+			url:wpAjaxObj.url,
+			data:payload, // form data
+			type:'post', // POST
+			beforeSend:function(xhr){
+			},
+			success:function(data){
+			}
+		});
+	}
+
+	function switchAssets(assetType, projectId) {
+		//Get assets by asset type and project Id
+		getAssetsByProject(projectId, assetType).done(function(assets) {
+			console.log('getAssetsByProject', assets);
+
+			//Remove current assets
+			projectDisplaySlider[currentProjectSlide].removeAllSlides();
+
+			//Append new slides
+			var newSlides = [];
+			assets.forEach(function(asset) {
+				var slide = '<div class="swiper-slide">';
+				switch (assetType) {
+					case 'screenshots':
+						slide += '<img src="' + asset.screen_src + '" alt="' + asset.title + '" title="' + asset.title +'">';
+						break;
+					case 'videos':
+						slide += asset;
+						break;
+				}
+				slide += '</div>';
+				newSlides.push(slide);
+			});
+			projectDisplaySlider[currentProjectSlide].appendSlide(newSlides);
+
+		});
+		
+	}
+
+	function handleProjectAssetNavigation() {
+		tempSelector = '.project-assets-navigation li a';
+		$(tempSelector).click(function(event) {
+			//Stop other events
+			event.preventDefault();
+			event.stopPropagation(); 
+
+			//Get clicked Asset Type name and title
+			var assetType = $(this).attr('data-attr');
+			var assetTypeTitle = $(this).attr('title');
+			console.log('assetType', assetType);
+
+			
+
+			//Get current project ID
+			var projectDomId = $(this).closest('.project').attr('id');
+			var projectId = projectDomId.substring(projectDomId.indexOf('-') + 1);
+			console.log('Current Project ID', projectId);
+
+			//Replace assets in screen
+			currentAssetTypeTitle = assetTypeTitle;
+			switchAssets(assetType, projectId);
+
+
+		});
+	}
+
 
 
 	
@@ -75,7 +173,7 @@
 		});
 	}
 
-	function getTechByCategory(category, cb) {
+	function getTechByCategory(category) {
 		var payload = {
 			action: 'filter_posts',
 			security: wpAjaxObj.security,
@@ -145,7 +243,9 @@
 		initFullPage();
 		initHello();
 		initAllSliders();
+		handleProjectAssetNavigation();
 		initTechTags();
+
 		// getTechByCategory();
 	});
 } )( jQuery );

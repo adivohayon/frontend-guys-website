@@ -5,7 +5,8 @@
 	<h2>Latest <span class="green">Projects</span></h2>
 	<?php
 		$args = array(
-			'post_type' => 'projects'
+			'post_type' => 'projects',
+			'posts_per_page' => 5
 			// 'tax_query' => array(
 			// 	array(
 			// 		'taxonomy' => 'tech_categories',
@@ -37,7 +38,7 @@
 				}
 
 	?>
-				<div class="slide" id="project-<?php echo $post->ID; ?>" data-anchor="<?php echo $post->post_name; ?>">
+				<div class="slide project" id="project-<?php echo $post->ID; ?>" data-anchor="<?php echo $post->post_name; ?>">
 					<div class="col-xs-5 project-details">
 						<div class="project-id hidden"><?php echo $post->ID ?></div>
 						<?php the_content(); ?>
@@ -95,7 +96,7 @@
 									            echo '<div class="swiper-slide">';
 									            // echo $id;
 									            // echo wp_get_attachment_image( $id, 'desktop-screenshots');
-									            echo '	<img src="' . $screenshot_screen_src . '" alt="' . $title . '" title="' . $title .'">';
+									            echo '	<img data-src="' . $screenshot_screen_src . '" alt="' . $title . '" title="' . $title .'">';
 									            echo '</div>';
 								
 											endforeach;
