@@ -1,17 +1,17 @@
 
 /*	USAGE:
+	Requires top/bottom left/right positions.
+	Parent must be position relative/absolute
 ************************
-	<div class="visual-container">
-		<div class="visual desktop-screen">
-			<img src="visual.png">
-			<div class="screen-content">[CONTENT]</div>
-		</div>
+	<div class="visual desktop-screen">
+		<img src="visual.png">
+		<div class="screen-content">[CONTENT]</div>
 	</div>
 */
 .visual {
 	text-align:center;
 	position:absolute;
-
+	
 	& > img {
 		width:100%;
 	}
@@ -35,28 +35,33 @@
 	=            Desktop Screen            =
 	======================================*/
 	&.desktop-screen {
+		width:100%;
 		& > img {
-			width: 75%;
 			max-height: 70vh;
+			max-width: 83vh;
 		}
 
 		.screen-content {
-			height: 61%; width: 70%;
-			bottom: 34%; 
+			height: 61%; width: 93%;
+			top: 5%; 
 			max-width: 78vh;
 		}
 	}
-
+	
+	/*=====================================
+	=            Laptop Screen            =
+	=====================================*/
 	&.laptop-screen {
 		//Change this
 		& > img {
-			width: 75%;
-			max-height: 70vh;
+			max-height: 46vh;
+			max-width: 73vh;
 		}
 
 		.screen-content {
-			height: 61%; width: 70%;
-			bottom: 34%; 
+			height: 79%;
+			width: 77%;
+			top: 6%;
 			max-width: 78vh;
 		}
 	}
@@ -68,41 +73,4 @@
 	bottom: 0;
 	width: 100%;
 	height: 100%;
-			.visuals {
-				
-
-				#orange-juice {
-					position: absolute;
-				    bottom: 12rem;
-				    left: -1rem;
-				}	
-				.laptop-screen {
-					position: absolute;
-				    bottom: 8rem;
-				    left: 2rem;
-				}
-				.large-screen {
-					position: absolute;
-				    bottom: 8rem;
-				    right: 1rem;
-				    max-height: 60vh;
-				}
-				#mouse-3d {
-					position: absolute;
-		    		bottom: 2rem;
-		    		right: 22rem;
-				}
-				#mouse-scroll-down {
-					position: absolute;
-				    bottom: 2rem;
-				    right: 19rem;
-				    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
-	    			animation: mymove 5s infinite;
-				}
-				@keyframes mymove {
-					0% {bottom: 2rem; opacity:1;}
-					50% {bottom: 1rem; opacity:0.4;}
-					100% {bottom: 2rem; opacity:1;}
-				}
-			}
 }

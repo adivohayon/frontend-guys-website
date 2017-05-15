@@ -37,6 +37,10 @@
 		    height: 7.14rem;
 		    margin-top: 2.14rem;
 		    margin-bottom: 1.2rem;
+		    position: relative;
+		    z-index: 100;
+		    -webkit-filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));
+			filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));
 		}
 
 		h2 {
@@ -47,8 +51,10 @@
 		    width: 40%;
 		    margin: auto;
 		    height: initial;
-		    z-index: 9999;
+		    z-index: 90;
 		    position: relative;
+		    min-width: 29rem;
+		    max-width: 27vw;
 		}
 
 		.typed-cursor{
@@ -60,34 +66,43 @@
 		
 		.visual {
 			&.orange-juice {
-			    bottom: 12rem;
-			    left: -1rem;
+			    bottom: 14vw;
+		        left: 2%;
+		        z-index: 20;
+		        max-width: 10vw;
 			}	
 			&.laptop-screen {
-			    bottom: 8rem;
-			    left: 2rem;
+			    bottom: 8vw;
+			    left: 6%;
+			    max-width: 35vw;
+			    z-index:70;
 			}
 			&.desktop-screen {
-			    bottom: 8rem;
-			    right: 1rem;
-			    max-height: 60vh;
-			    width:40%;
+			    bottom: 8vw;
+			    right: 4%;
+			    // max-height: 60vh;
+		        max-width: 36vw;
+		        z-index:70;
 			}
 			&.mouse-3d {
-	    		bottom: 2rem;
-	    		right: 22rem;
+	    		bottom: 7%;
+    		    right: 36%;
+    		    z-index: 80;
+    		    max-width: 10vw;
 			}
 			&.mouse-scroll-down {
-			    bottom: 2rem;
-			    right: 19rem;
-			    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
-    			animation: mymove 5s infinite;
+				z-index:90;
+			    bottom: 7%;
+			    right: 27%;
+			    -webkit-animation: up-and-down 1.5s linear infinite; /* Safari 4.0 - 8.0 */
+    			animation: up-and-down 1.5s linear infinite;
+    			width: 2rem;
+			    margin: auto;
+			    left: 50%;
+			    right: 50%;
+
 			}
-			@keyframes mymove {
-				0% {bottom: 2rem; opacity:1;}
-				50% {bottom: 1rem; opacity:0.4;}
-				100% {bottom: 2rem; opacity:1;}
-			}
+			
 		}
 	}
 
