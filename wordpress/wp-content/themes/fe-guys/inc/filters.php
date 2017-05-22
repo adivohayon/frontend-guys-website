@@ -82,10 +82,14 @@
 				$videos = array();
 				for ($i = 0 ; $i < 5; $i++) {
 					if ( get_field('video-' . $i)) {
+						$video_url = get_field('video-' . $i);
+						$args = array(
+							'width'=>684, 
+							'height'=>394
+						);
 						array_push(
 							$videos,
-							// get_field('video-' . $i)
-							do_shortcode('[youtube]' . get_field('video-' . $i) . '[/youtube]')
+							wp_oembed_get($video_url, $args)
 						);
 					}
 				}
@@ -115,4 +119,31 @@
 		// echo 'aaa';
 		
 	}
+
+	
+	function imp_custom_youtube_querystring( $html, $url, $args ) {
+		if(strpos($html, 'youtube')!= FALSE) {
+			$args = [
+				'rel' 				=> 0,
+				'showinfo' 			=> 0,
+				'modestbranding' 	=> 1,
+				'controls' 			=> isset($args['controls']) ? $args['controls'] : 0,
+				'autoplay' 			=> isset($args['autoplay']) ? $args['autoplay'] : 0,
+				'loop' 				=> isset($args['loop']) 	? $args['loop'] 	: 0
+			];
+			$params = '?feature=oembed&';
+			foreach($args as $arg => $value){
+				$params .= $arg;
+				$params .= '=';
+				$params .= $value;
+				$params .= '&';
+			}
+			$result = str_replace( '?feature=oembed', $params, $html );
+		}
+		return $result;
+	}
+	add_filter('oembed_result', 'imp_custom_youtube_querystring', 10, 3);
+	
+
+
 ?>

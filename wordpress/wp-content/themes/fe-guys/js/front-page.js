@@ -118,13 +118,16 @@
 			//Append new slides
 			var newSlides = [];
 			assets.forEach(function(asset) {
-				var slide = '<div class="swiper-slide">';
+				var slide = '<div class="swiper-slide asset">' +
+								'<div class="spinner">' +
+									'<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>' +
+								'</div>';
 				switch (assetType) {
 					case 'screenshots':
 						slide += '<img src="' + asset.screen_src + '" alt="' + asset.title + '" title="' + asset.title +'">';
 						break;
 					case 'videos':
-						slide += asset;
+						slide += '<div class="youtube-embed">' + asset + '</div>';
 						break;
 				}
 				slide += '</div>';

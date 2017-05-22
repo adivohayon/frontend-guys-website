@@ -93,7 +93,7 @@
 									            // $alt = get_field('photo_gallery_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
 									            // $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
 
-									            echo '<div class="swiper-slide">';
+									            echo '<div class="swiper-slide asset">';
 									            // echo $id;
 									            // echo wp_get_attachment_image( $id, 'desktop-screenshots');
 									            echo '	<img data-src="' . $screenshot_screen_src . '" alt="' . $title . '" title="' . $title .'">';
