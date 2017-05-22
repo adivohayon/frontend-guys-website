@@ -27,6 +27,8 @@ services:
       - ./wordpress/wp-content/plugins/navz-photo-gallery:/app/wp-content/plugins/navz-photo-gallery
       - ./wordpress/wp-content/plugins/simple-custom-post-order:/app/wp-content/plugins/simple-custom-post-order
       - ./wordpress/wp-content/plugins/duplicate-post:/app/wp-content/plugins/duplicate-post
+      - ./wordpress/wp-content/plugins/youtube-embed:/app/wp-content/plugins/youtube-embed
+      - ./wordpress/wp-content/plugins/lazy-load-for-videos:/app/wp-content/plugins/lazy-load-for-videos
       #-------------------------------------------------------
 
       #------------------------Uploads------------------------
@@ -42,7 +44,9 @@ services:
         [local]regenerate-thumbnails,
         [local]navz-photo-gallery,
         [local]simple-custom-post-order,
-        [local]duplicate-post
+        [local]duplicate-post,
+        [local]youtube-embed,
+        [local]lazy-load-for-videos
       THEMES: >-
         [local]fe-guys
       SERVER_NAME: dev-machine

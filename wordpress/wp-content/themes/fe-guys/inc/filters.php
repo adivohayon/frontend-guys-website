@@ -85,7 +85,7 @@
 						array_push(
 							$videos,
 							// get_field('video-' . $i)
-							wp_oembed_get(get_field('video-' . $i))
+							do_shortcode('[youtube]' . get_field('video-' . $i) . '[/youtube]')
 						);
 					}
 				}

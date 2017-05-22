@@ -107,7 +107,13 @@
 			console.log('getAssetsByProject', assets);
 
 			//Remove current assets
-			projectDisplaySlider[currentProjectSlide].removeAllSlides();
+			if (projectDisplaySlider) {
+				if (currentProjectSlide > 0 ){
+					projectDisplaySlider[currentProjectSlide].removeAllSlides();
+				} else {
+					projectDisplaySlider.removeAllSlides();
+				}
+			}
 
 			//Append new slides
 			var newSlides = [];
@@ -124,7 +130,14 @@
 				slide += '</div>';
 				newSlides.push(slide);
 			});
-			projectDisplaySlider[currentProjectSlide].appendSlide(newSlides);
+
+			//Append new slides
+			if (currentProjectSlide > 0 ){
+				projectDisplaySlider[currentProjectSlide].appendSlide(newSlides);
+			} else {
+				projectDisplaySlider.appendSlide(newSlides);
+			}
+			
 
 		});
 		

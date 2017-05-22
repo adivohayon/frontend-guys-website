@@ -79,7 +79,7 @@ function fe_guys_setup() {
 	add_filter( 'nav_menu_link_attributes', 'add_menu_atts', 10, 3 );
 
 	//Custom Image Sizes
-	add_image_size( 'desktop-screenshots', 800, 442, array('center', 'top'));
+	add_image_size( 'desktop-screenshots', 683, 374, array('center', 'top'));
 	// add_image_size( 'tablet-screenshots', 800, 437, array('center', 'top'));
 	// add_image_size( 'phone-screenshots', 800, 437, array('center', 'top'));
 }
