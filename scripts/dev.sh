@@ -12,6 +12,15 @@ cyn=$'\e[1;36m'
 end=$'\e[0m'
 
 # --------------------Helper Functions--------------------
+function startMachineIfOff {
+	# Start machine only if it's not running
+	MACHINE_STATUS=$(docker-machine status dev-machine)
+	if [ ! "$MACHINE_STATUS" = "Running" ]; then
+		echo "Starting machine..."
+		docker-machine start dev-machine
+	fi
+}
+
 function runInBackground {
 
 	#Check that we receive a second argument for process name
@@ -112,13 +121,8 @@ function dockerCleanup {
 
 # --------------------START Dev Environment--------------------
 if [ $operation = "start" ]; then
-	# Start machine only if it's not running
-	MACHINE_STATUS=$(docker-machine status dev-machine)
-	if [ "$MACHINE_STATUS" = "Stopped" ]; then
-		echo "Starting machine..."
-		docker-machine start dev-machine
-	fi
-	
+
+	startMachineIfOff
 	startSync
 	setupEnv
 	startUtilities
