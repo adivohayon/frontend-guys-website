@@ -106,11 +106,11 @@
 							</div>
 
 							<div class="top-position pagination-container">
-								<div class="swiper-prev">
+								<div class="swiper-prev swiper-arrows">
 									<i class="fa fa-caret-left" aria-hidden="true"></i>
 								</div>
 								<div class="swiper-pagination"></div>
-								<div class="swiper-next">
+								<div class="swiper-next swiper-arrows">
 									<i class="fa fa-caret-right" aria-hidden="true"></i>
 								</div>
 							</div>

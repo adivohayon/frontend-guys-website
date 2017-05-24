@@ -68,6 +68,7 @@
 			// Optional parameters
 			slidesPerView: 1,
 			loop: true,
+			loopAdditionalSlides: 0,
 			nextButton: '.project-display .swiper-next',
 	        prevButton: '.project-display .swiper-prev',
 	        pagination: '.project-display .swiper-pagination',
@@ -101,21 +102,24 @@
 		});
 	}
 
+	var paginationEnabled = true;
 	function switchAssets(assetType, projectId) {
 		//Get assets by asset type and project Id
 		getAssetsByProject(projectId, assetType).done(function(assets) {
-			console.log('getAssetsByProject', assets);
+			// console.log('getAssetsByProject', assets);
 
-			//Remove current assets
-			if (projectDisplaySlider) {
-				if (currentProjectSlide > 0 ){
-					projectDisplaySlider[currentProjectSlide].removeAllSlides();
-				} else {
-					projectDisplaySlider.removeAllSlides();
-				}
+			/*====================================
+			=            Reset Slider            =
+			====================================*/
+			//Select current slider
+			var slider = currentProjectSlide > 0 ? projectDisplaySlider[currentProjectSlide] : projectDisplaySlider;
+			if (slider) {
+				slider.removeAllSlides();
 			}
 
-			//Append new slides
+			/*=========================================
+			=            Create New Slides            =
+			=========================================*/
 			var newSlides = [];
 			assets.forEach(function(asset) {
 				var slide = '<div class="swiper-slide asset">' +
@@ -134,12 +138,40 @@
 				newSlides.push(slide);
 			});
 
-			//Append new slides
-			if (currentProjectSlide > 0 ){
-				projectDisplaySlider[currentProjectSlide].appendSlide(newSlides);
-			} else {
-				projectDisplaySlider.appendSlide(newSlides);
+			
+			
+			/*==================================
+			=            Pagination            =
+			==================================*/
+			function togglePagination(enabled) {
+				//if it's enabled, disable
+				if (enabled) {
+					slider.unlockSwipes();
+					$('.project-display .swiper-arrows').fadeTo( "fast" , 1);
+				} 
+				//if it's disabled, enable
+				else {
+					slider.lockSwipes();
+					$('.project-display .swiper-arrows').fadeTo( "fast" , 0.4);
+				}
 			}
+
+			//if there is only one slide, disable pagination
+			if (newSlides.length === 1) {
+				togglePagination(false);
+			}
+			//if there is more than one slide, enable pagination
+			else if (newSlides.length > 1) {
+				togglePagination(true);
+			}
+
+			/*=====================================
+			=            Append Slides            =
+			=====================================*/
+			if (newSlides.length > 0) {
+				slider.appendSlide(newSlides);
+			}
+
 			
 
 		});
