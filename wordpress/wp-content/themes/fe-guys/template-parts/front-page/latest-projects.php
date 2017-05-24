@@ -40,18 +40,36 @@
 	?>
 				<div class="slide project" id="project-<?php echo $post->ID; ?>" data-anchor="<?php echo $post->post_name; ?>">
 					<div class="col-xs-5 project-details">
-						<div class="project-id hidden"><?php echo $post->ID ?></div>
-						<?php the_content(); ?>
-						<div class="project-assets-navigation">
+						<div class="project-header">
+							<div class="project-logo">
+								<?php
+									if ( has_post_thumbnail() ) {
+								    	the_post_thumbnail('medium');
+									} else {
+										the_title('<h3>', '</h3>');
+									}
+								?>
+							</div>
+							<?php if (get_field("project-tagline")) :?>
+								<div class="project-tagline">
+									<span>Tagline: </span><?php echo get_field("project-tagline"); ?>
+								</div>
+							<?php endif;?>
+						</div>
+						<div class="project-description content-padding">
+							<?php the_content(); ?>	
+						</div>
+						<div class="project-assets-navigation content-padding">
+							<hr />
 							<ul>
 								<?php
 									if ( count($images) ) {
-										echo '<li><a href="project/screenshots" title="Screenshots" data-attr="screenshots">Screenshots</a></li>';
+										echo '<li><a class="asset-navigation-item" href="project/screenshots" title="Screenshots" data-attr="screenshots">Screenshots</a></li>';
 									}
 
 									
 									if ( count($videos) ) {
-										echo '<li><a href="project/videos" title="Videos" data-attr="videos">Videos</a></li>';
+										echo '<li><a class="asset-navigation-item" href="project/videos" title="Videos" data-attr="videos">Videos</a></li>';
 									}
 								?>
 							</ul>

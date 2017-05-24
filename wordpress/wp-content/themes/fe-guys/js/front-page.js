@@ -82,6 +82,7 @@
 		var projectId = projectDomId.substring(projectDomId.indexOf('-') + 1);
 		//Replace assets in screen
 		switchAssets('screenshots', projectId);
+		$('.asset-navigation-item').first().addClass('active');
 
 	}
 
@@ -185,6 +186,8 @@
 			//Get clicked Asset Type name and title
 			var assetType = $(this).attr('data-attr');
 			var assetTypeTitle = $(this).attr('title');
+			$('.asset-navigation-item').removeClass('active');
+			$(this).addClass('active');
 			// console.log('assetType', assetType);
 			
 
