@@ -123,13 +123,16 @@
 	
 	function imp_custom_youtube_querystring( $html, $url, $args ) {
 		if(strpos($html, 'youtube')!= FALSE) {
+			parse_str( parse_url( $url, PHP_URL_QUERY ), $query_array );
 			$args = [
 				'rel' 				=> 0,
 				'showinfo' 			=> 0,
 				'modestbranding' 	=> 1,
 				'controls' 			=> isset($args['controls']) ? $args['controls'] : 0,
 				'autoplay' 			=> isset($args['autoplay']) ? $args['autoplay'] : 0,
-				'loop' 				=> isset($args['loop']) 	? $args['loop'] 	: 0
+				'loop' 				=> isset($args['loop']) 	? $args['loop'] 	: 0,
+				'playlist'			=> isset($args['playlist']) ? $args['playlist'] : $query_array['v'] 
+				// 'width'				=> isset($args['width']) 	? $args
 			];
 			$params = '?feature=oembed&';
 			foreach($args as $arg => $value){
@@ -138,6 +141,7 @@
 				$params .= $value;
 				$params .= '&';
 			}
+			$params = substr($params, 0, -1);
 			$result = str_replace( '?feature=oembed', $params, $html );
 		}
 		return $result;

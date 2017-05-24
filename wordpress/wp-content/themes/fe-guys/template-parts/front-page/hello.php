@@ -20,7 +20,18 @@
 		=====================================-->
 		<div class="visual desktop-screen">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/large-screen.svg' ?>" alt="Large Monitor">
-			<div class="screen-content">[CONTENT]</div>
+			<div class="screen-content">
+				<div class="spinner">
+					<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
+				</div>
+				<div class="asset">
+					<?php
+						$image = get_field('hello-desktop-image');
+						echo '<img src="' . $image['sizes']['medium_large'] . '" alt="' . $image['title'] . '" title="' . $image['title'] . '">';
+						// print_r(get_field('hello-desktop-image'));
+					?>
+				</div>
+			</div>
 		</div>
 
 		<!--===================================
@@ -28,7 +39,26 @@
 		====================================-->
 		<div class="visual laptop-screen">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/laptop.png' ?>" alt="Laptop">
-			<div class="screen-content">[CONTENT]</div>
+			<div class="screen-content">
+				<div class="spinner">
+					<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
+				</div>
+				<div class="asset">
+					
+					<div class="youtube-embed">
+						<?php
+							$args = array(
+								'height'=>247,
+								'loop'=>1,
+								'autoplay'=>1
+							);
+							$video_url = get_field( 'hello-laptop-video');
+							echo wp_oembed_get($video_url, $args);
+							
+						?>
+					</div>
+				</div>
+			</div>
 		</div>
 		
 		<!--==================================
