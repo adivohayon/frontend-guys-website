@@ -1,8 +1,7 @@
 ( function( $ ) {
-	var tempSelector = '';
-	/*===============================================
-	=            Fullpage Implementation            =
-	===============================================*/
+/*===============================================
+=            Fullpage Implementation            =
+===============================================*/
 	var currentProjectSlide = 0;
 	function initFullPage() { 
 		$('.site-header').hide();
@@ -18,18 +17,10 @@
 			afterSlideLoad: function(anchorLink, sectionIndex, slideAnchor, slideIndex) {
 				if (anchorLink == 'latest-projects') {
 					currentProjectSlide = slideIndex;
-					// console.log('Updating currentProjectSlide', currentProjectSlide);
 				}
 			},
 			onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){
 				if (anchorLink == 'latest-projects') {
-					//get next slide's project id
-					// console.log('nextSlideIndex', nextSlideIndex);
-					//load next slide via ajax
-					// getAssetsByProject(projectId).done(function(assets) {
-					// 	console.log('assets', assets);
-					// });
-					//append data to dom
 				}
 			},
 			onLeave: function(index, nextIndex){
@@ -44,10 +35,11 @@
 			fitToSection: false
 		});
 	}
+/*==================  End of Fullpage Implementation  ===================*/
 
-	/*===============================================
-	=            Hello Section 			            =
-	===============================================*/
+/*===============================================
+=            Hello Section 			            =
+===============================================*/
 	function initHello() {
 		$("#section-hello h2 span").typed({
 			strings: ["Developers turned Designers", "Designers turned Developers"],
@@ -57,9 +49,11 @@
 			backDelay: 2000
 		});
 	}
-	/*===============================================
-	=            Latest Projects Section            =
-	===============================================*/
+/*======================  End of Hello Secion  ========================*/
+
+/*===============================================
+=            Latest Projects Section            =
+===============================================*/
 	//Project Display Slider
 	var projectDisplaySlider;
 	var currentAssetTypeTitle = 'Screenshots';
@@ -68,6 +62,7 @@
 			// Optional parameters
 			slidesPerView: 1,
 			loop: true,
+			loopAdditionalSlides: 0,
 			nextButton: '.project-display .swiper-next',
 	        prevButton: '.project-display .swiper-prev',
 	        pagination: '.project-display .swiper-pagination',
@@ -79,6 +74,15 @@
 						'<span class="' + totalClassName + '"></span>)';
 			}
 		});
+
+		/*====================================================================
+		=            Load Screenshots of first project as Default            =
+		====================================================================*/
+		var projectDomId = $('#section-latest-projects .project').first().attr('id');
+		var projectId = projectDomId.substring(projectDomId.indexOf('-') + 1);
+		//Replace assets in screen
+		switchAssets('screenshots', projectId);
+
 	}
 
 	function getAssetsByProject(projectId, assetType) {
@@ -101,27 +105,28 @@
 		});
 	}
 
+	var paginationEnabled = true;
 	function switchAssets(assetType, projectId) {
 		//Get assets by asset type and project Id
 		getAssetsByProject(projectId, assetType).done(function(assets) {
-			console.log('getAssetsByProject', assets);
+			// console.log('getAssetsByProject', assets);
 
-			//Remove current assets
-			if (projectDisplaySlider) {
-				if (currentProjectSlide > 0 ){
-					projectDisplaySlider[currentProjectSlide].removeAllSlides();
-				} else {
-					projectDisplaySlider.removeAllSlides();
-				}
+			/*====================================
+			=            Reset Slider            =
+			====================================*/
+			//Select current slider
+			var slider = currentProjectSlide > 0 ? projectDisplaySlider[currentProjectSlide] : projectDisplaySlider;
+			if (slider) {
+				slider.removeAllSlides();
 			}
 
-			//Append new slides
+			/*=========================================
+			=            Create New Slides            =
+			=========================================*/
 			var newSlides = [];
 			assets.forEach(function(asset) {
-				var slide = '<div class="swiper-slide asset">' +
-								'<div class="spinner">' +
-									'<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>' +
-								'</div>';
+				var slide = '<div class="swiper-slide asset">';
+
 				switch (assetType) {
 					case 'screenshots':
 						slide += '<img src="' + asset.screen_src + '" alt="' + asset.title + '" title="' + asset.title +'">';
@@ -133,22 +138,46 @@
 				slide += '</div>';
 				newSlides.push(slide);
 			});
-
-			//Append new slides
-			if (currentProjectSlide > 0 ){
-				projectDisplaySlider[currentProjectSlide].appendSlide(newSlides);
-			} else {
-				projectDisplaySlider.appendSlide(newSlides);
-			}
 			
+			/*==================================
+			=            Pagination            =
+			==================================*/
+			function togglePagination(enabled) {
+				//if it's enabled, disable
+				if (enabled) {
+					slider.unlockSwipes();
+					$('.project-display .swiper-arrows').fadeTo( "fast" , 1);
+				} 
+				//if it's disabled, enable
+				else {
+					slider.lockSwipes();
+					$('.project-display .swiper-arrows').fadeTo( "fast" , 0.4);
+				}
+			}
+
+			//if there is only one slide, disable pagination
+			if (newSlides.length === 1) {
+				togglePagination(false);
+			}
+			//if there is more than one slide, enable pagination
+			else if (newSlides.length > 1) {
+				togglePagination(true);
+			}
+
+			/*=====================================
+			=            Append Slides            =
+			=====================================*/
+			if (newSlides.length > 0) {
+				slider.appendSlide(newSlides);
+				slider.slideTo(1);
+			}
 
 		});
 		
 	}
 
 	function handleProjectAssetNavigation() {
-		tempSelector = '.project-assets-navigation li a';
-		$(tempSelector).click(function(event) {
+		$('.project-assets-navigation li a').click(function(event) {
 			//Stop other events
 			event.preventDefault();
 			event.stopPropagation(); 
@@ -156,30 +185,27 @@
 			//Get clicked Asset Type name and title
 			var assetType = $(this).attr('data-attr');
 			var assetTypeTitle = $(this).attr('title');
-			console.log('assetType', assetType);
-
+			// console.log('assetType', assetType);
 			
 
 			//Get current project ID
 			var projectDomId = $(this).closest('.project').attr('id');
 			var projectId = projectDomId.substring(projectDomId.indexOf('-') + 1);
-			console.log('Current Project ID', projectId);
+			// console.log('Current Project ID', projectId);
 
 			//Replace assets in screen
 			currentAssetTypeTitle = assetTypeTitle;
 			switchAssets(assetType, projectId);
-
-
 		});
 	}
 
-
+/*=====================  End of Latest Project Section  ======================*/
+	
 
 	
-	
-	/*====================================
-	=            Tech Section            =
-	====================================*/
+/*====================================================
+=            Tech Section                            =
+====================================================*/
 	var techSlider;
 	function setupTechSlider() {
 		techSlider = new Swiper ('.tech-icons.swiper-container', {
@@ -198,17 +224,12 @@
 		// console.log('ajax payload', payload);
 
 		return $.ajax({
-			url:wpAjaxObj.url,
-			data:payload, // form data
+			url: wpAjaxObj.url,
+			data: payload, 
 			type:'post', // POST
 			beforeSend:function(xhr){
-				// filter.find('button').text('Processing...'); // changing the button label
 			},
 			success:function(data){
-				// cb(data);
-				// console.log('data', data);
-				// filter.find('button').text('Apply filter'); // changing the button label back
-				// $('#response').html(data); // insert data
 			}
 		});
 	}
@@ -246,6 +267,7 @@
 			});
 		});
 	}
+/*=====================  End of Tech Section  ======================*/
 
 
 	
