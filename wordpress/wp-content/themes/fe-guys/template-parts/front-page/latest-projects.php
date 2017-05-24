@@ -66,42 +66,13 @@
 						<div class="visual desktop-screen">
 							<img class="display-screen large-screen" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/large-screen.svg' ?>" alt="Large Monitor">
 							<div class="screen-content swiper-container">
-								
+								<div class="spinner">
+									<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
+								</div>
 								
 								
 								<div class="swiper-wrapper">
-									<?php
-									    //Get the images ids from the post_metadata
-									    
-									    //Check if return array has anything in it
-									    if( count($images) ):
-									        //Cool, we got some data so now let's loop over it
-									        foreach($images as $image):
-									        	// print_r($image);
-									            $id = $image['id'];
-									            $title = $image['title']; //The title
-
-									            $caption= $image['caption']; //The caption
-									            $full_image_url= $image['full_image_url']; //Full size image url
-									            // $cropped_url = acf_photo_gallery_resize_image($full_image_url, 800, 437); //Resized size to 262px width by 160px height image url
-									            // $cropped_url = get_the_post_thumbnail_url($image['id'], 'desktop-screenshots');
-									            $screenshot_screen = wp_get_attachment_image_src( $id, 'desktop-screenshots' );
-									            $screenshot_screen_src = $screenshot_screen[0];
-									            $thumbnail_image_url= $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
-									            $url= $image['url']; //Goto any link when clicked
-									            // $target= $image['target']; //Open normal or new tab
-									            // $alt = get_field('photo_gallery_alt', $id); //Get the alt which is a extra field (See below how to add extra fields)
-									            // $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
-
-									            echo '<div class="swiper-slide asset">';
-									            // echo $id;
-									            // echo wp_get_attachment_image( $id, 'desktop-screenshots');
-									            echo '	<img data-src="' . $screenshot_screen_src . '" alt="' . $title . '" title="' . $title .'">';
-									            echo '</div>';
-								
-											endforeach;
-										endif;
-									?>
+									
 								</div>
 							</div>
 
