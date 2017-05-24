@@ -159,6 +159,77 @@
 		
 	}
 
+	/*=======================================
+	=            Design & Development           =
+	=======================================*/
+	&#section-design-and-development {
+		h3 {
+			width: 78%;
+		    margin: auto;
+		    margin-top: 2.56rem;
+		    margin-bottom: 5.3rem;
+		}
+
+		h4 {
+			width: 78%;
+		    margin: auto;
+			margin-top: 8.5rem;
+		}
+		.eggs-container {
+			position:relative;
+			height:100%;
+			width: 80%;
+    		margin: auto;
+    		margin-bottom: 5rem;
+			$container-height: 2rem;
+			$border-height:0.3rem;
+			$egg-height: 1.3rem;
+
+			hr {
+				background-color: white;
+			    height: 100%;
+			    margin: 0;
+			    border-bottom: $border-height solid #FF7575;
+			    padding: $container-height/2 0;
+			    width: 100%;
+    			margin: auto;
+			}
+			ul {
+			    list-style: none;
+			    position: absolute;
+			    margin: 0;
+    			padding: 0;
+    			width: 100%;
+    			display: flex;
+    			justify-content: space-between;
+			    top: $container-height - $egg-height/2 + $border-height/2;
+
+			    li {
+			    	display: inline-block;
+			    	&:first-child {
+			    		.egg{margin:0;}
+			    	}
+	
+			    }
+			}
+
+			.egg {
+				border-radius:50%;
+				height: $egg-height;
+				width: $egg-height;
+				background-color:#444444;
+				margin:auto;
+				
+			}
+
+			.egg-text {
+				top:1rem;
+				margin-top:1rem;
+				text-align: -webkit-center;
+			}
+		}
+	}
+
 
 	/*=======================================
 	=            Latest Projects            =
