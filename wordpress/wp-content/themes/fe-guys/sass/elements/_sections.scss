@@ -235,7 +235,6 @@
 	=            Latest Projects            =
 	=======================================*/
 	&#section-latest-projects {
-
 		//Details container
 		.project-details {
 			.project-header {
@@ -330,7 +329,54 @@
 		}
 	}
 
+
+
+	/*=======================================
+	=            From Our Blog            =
+	=======================================*/
+	
+	// &.aa {color:red;}
+
+	&#section-from-our-blog {
+		h2 {margin-bottom:3rem;}
+		.latest-posts {
+			background-color: white;
+		    padding-top: 2rem;
+			.post-container {
+				width: 60%;
+		    	float:left;
+		    	padding-left:1rem;
+		    	h5 {
+		    		font-weight:600;
+		    	}
+				.post-details {
+					color:#919191;
+					font-family: 'Open Sans';
+					font-size: 0.9rem;
+					// .accent {
+					// 	color:$color__accent;
+					// }
+				}
+				.description {
+					padding:0;
+				}
+			}
+
+			.image-container {
+				width:16rem;
+				float:left;
+			}
+
+			// .read-more {
+			// 	a {
+			// 		color:$color__accent;
+			// 	}
+			// }
+		}
+	}
 }
+
+
 
 
 
