@@ -43,7 +43,11 @@
 					           // $recent["post_title"];
 							?>
 						</div>
-						<div class="post-container">
+						<div class="post-container <?php if ( has_post_thumbnail($recent["ID"]) ) {
+								echo '';
+							} else {
+								echo 'full-width';
+							} ?>">
 							<h5><?php echo '<a class="post-link" href="' . get_permalink($recent["ID"]) . '" title="' . $recent["post_title"] . '">' . $recent["post_title"] . '</a>'; ?></h5>
 							<div class="post-details">
 								<?php echo get_the_date('', $recent["ID"]);?> by <?php 
