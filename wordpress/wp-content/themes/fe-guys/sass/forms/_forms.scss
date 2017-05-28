@@ -2,15 +2,33 @@
 
 @import "fields";
 
+/*=============================
+=            Forms            =
+=============================*/
+
+
+
 .fe-form {
-	background-color:#F5F5F5;
+	background-color:$color__grey-box;
 	height:100%;
 	border-radius:3px;
-	margin:1rem;
+	max-width: 50rem;
+    margin: 1rem auto;
 	padding:2rem;
 	$input_color: #E6E6E6;
 
-
+	.row {
+		& > div {
+			padding-right:1rem;
+			&:last-child {
+				padding-right:0;
+				padding-left:1rem;
+			}
+			&:only-child {
+				padding:0;
+			}
+		}
+	}
 	ul {
 		list-style: none;
 		margin: 0;
@@ -23,7 +41,7 @@
 				left:0; top:0.4rem;
 				z-index:20;
 				font-size:1.4rem;
-				width: 2.5rem;
+				width: 2.5rem; 
 				text-align: center;
 				color:$color__primary;
 				@include transition(opacity 0.3s ease);
@@ -38,10 +56,9 @@
 		}
 	}
 	
-	
+	textarea, input, button { outline: none; }
 	input, textarea, label {
-		font-size:0.9rem;
-		font-weight:500;
+		
 	}
 
 
@@ -51,6 +68,7 @@
 		padding: 0.4rem 0.4rem 0.4rem 2.5rem;
 		background-color:$input_color;
 		margin-bottom:1rem;
+		width:100%;
 
 		&.input-focused {
 			@include placeholder {
@@ -59,15 +77,19 @@
 			}
 		}
 		
-		// &:focus {
-			
-		// }
 		@include placeholder {
 		    color: #8F8E8E;
 		    @include transition(color 0.3s ease);
 		}
+		
+		font-size:0.9rem;
+		font-weight:500;
 	}
-	textarea, input, button { outline: none; }
+	label {
+		font-size:0.9rem;
+		font-weight:500;
+	}
+	
 	
 	.wpcf7-list-item-label {
 		color:$color__black__lighter;

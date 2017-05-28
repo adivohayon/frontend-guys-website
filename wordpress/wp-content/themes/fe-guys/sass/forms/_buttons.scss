@@ -2,14 +2,15 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
+	border: 0;
 	border-radius: 3px;
 	background: $color__background-button;
 	color: rgba(0, 0, 0, .8);
-	@include font-size(0.75);
+	@include font-size(0.9);
 	line-height: 1;
 	padding: .6em 1em .4em;
+	font-weight: 600;
+	@include transition(background-color .3s ease);
 
 	&:hover {
 		border-color: $color__border-button-hover;
@@ -18,5 +19,35 @@ input[type="submit"] {
 	&:active,
 	&:focus {
 		border-color: $color__border-button-focus;
+	}
+
+	&.btn-primary {
+		text-transform: uppercase;
+		background-color: $color__accent;
+		color:#ffffff;
+		height:2.2rem;
+
+		&:hover {background-color:$color__accent__hover;}
+		&:active, &:focus {background-color: $color__accent__focus;}
+	}
+
+	&.btn-secondary {
+		text-transform: uppercase;
+		background-color: $color__primary;
+		color:#ffffff;
+		// height: 2.5em;
+		@include font-size(0.7);
+
+		&:hover {background-color:$color__primary__hover;}
+		&:active, &:focus {background-color: $color__primary__focus;}
+	}
+
+	&.btn-with-icon {
+		i {
+			font-size: 2em;
+		    padding-right: 0.4em;
+		    line-height: 1;
+		    vertical-align: middle;
+		}
 	}
 }

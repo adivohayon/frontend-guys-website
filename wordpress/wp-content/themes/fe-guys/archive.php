@@ -6,11 +6,63 @@
  *
  * @package Frontend_Guys
  */
-  s
-get_header(); ?>
+  
+get_header(); 
+
+$obj = get_queried_object();
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+			<div id="archive" class="menu-padding">
+				<header class="row">
+					<div class="col-xs-12">
+						<div class="header-image">
+							<?php 
+								if (is_category()) {
+									echo do_shortcode('[wp_custom_image_category  
+										size="full" 
+										term_id="' . $obj->cat_ID . '" 
+										alt="'. $obj->cat_name . '"
+									]');
+								}
+
+								if (is_author()) {
+									the_author_image($obj->ID); 
+
+								}
+							?>
+						</div>
+						<div class="header-title">
+							<h2><span class="green"><?php echo is_author() ? $obj->display_name . '\'s' :  $obj->cat_name; ?></span> Archive</h2>
+						</div>
+
+						
+					</div>
+				</header>
+				<div class="row">
+					<div class="col-xs-9 content-padding">
+						<?php
+							/* Start the Loop */
+							while ( have_posts() ) : the_post();
+
+								/*
+								 * Include the Post-Format-specific template for the content.
+								 * If you want to override this in a child theme, then include a file
+								 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+								 */
+								get_template_part( 'template-parts/content', get_post_format() );
+
+							endwhile;
+
+							the_posts_navigation();
+						?>
+					</div>
+					<div class="col-xs-3">
+						<?php get_sidebar(); ?>
+					</div>
+				</div>
+			</div>
 
 		<?php
 		if ( have_posts() ) : ?>
