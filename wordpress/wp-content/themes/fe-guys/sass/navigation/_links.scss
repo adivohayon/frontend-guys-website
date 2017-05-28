@@ -1,6 +1,8 @@
 a {
 	color: $color__link;
 
+	&.post-link {color:$color__black;}
+
 	&:visited {
 		color: $color__link-visited;
 	}
