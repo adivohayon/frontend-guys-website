@@ -342,6 +342,7 @@
 	=======================================*/
 	&#section-from-our-blog {
 		h2 {margin-bottom:3rem;}
+		.row{background-color:$color__background-accent;}
 		.latest-posts {
 			background-color: white;
 		    padding-top: 2rem;
@@ -349,6 +350,7 @@
 				width: 60%;
 		    	float:left;
 		    	padding-left:1rem;
+		    	&.full-width {width:100%;}
 		    	h5 {
 		    		font-weight:600;
 		    	}
@@ -366,15 +368,9 @@
 			}
 
 			.image-container {
-				width:16rem;
+				width:40%;
 				float:left;
 			}
-
-			// .read-more {
-			// 	a {
-			// 		color:$color__accent;
-			// 	}
-			// }
 		}
 	}
 }
