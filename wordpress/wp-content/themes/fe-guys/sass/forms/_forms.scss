@@ -9,7 +9,7 @@
 	margin:1rem;
 	padding:2rem;
 	$input_color: #E6E6E6;
-	$placehold_color: #8F8E8E;
+
 
 	ul {
 		list-style: none;
@@ -17,32 +17,54 @@
 		padding: 0;
 		li {
 			position:relative;
+			// @include transition(opacity 0.3s ease);
 			i {
 				position:absolute;
-				left:0.5rem; top:0.4rem;
+				left:0; top:0.4rem;
 				z-index:20;
 				font-size:1.4rem;
+				width: 2.5rem;
+				text-align: center;
+				color:$color__primary;
+				@include transition(opacity 0.3s ease);
+				@include opacity(0.5);
+				&.input-focused {
+					// @include transition(opacity 0.3s ease);
+					@include opacity(1);
+					
+				}
 			}
+
 		}
 	}
 	
-	input[type="text"], input[type="tel"], input[type="email"], input[type="number"] {
+	
+	input, textarea, label {
+		font-size:0.9rem;
+		font-weight:500;
+	}
+
+
+
+	input[type="text"], input[type="tel"], input[type="email"], input[type="number"], textarea {
 		border: 0;
 		padding: 0.4rem 0.4rem 0.4rem 2.5rem;
 		background-color:$input_color;
 		margin-bottom:1rem;
 
-		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-		  color: $placehold_color
+		&.input-focused {
+			@include placeholder {
+				color:$color__black__lighter;
+				font-weight:600;
+			}
 		}
-		&::-moz-placeholder { /* Firefox 19+ */
-		  color: $placehold_color
-		}
-		&:-ms-input-placeholder { /* IE 10+ */
-		  color: $placehold_color
-		}
-		&:-moz-placeholder { /* Firefox 18- */
-		  color: $placehold_color
+		
+		// &:focus {
+			
+		// }
+		@include placeholder {
+		    color: #8F8E8E;
+		    @include transition(color 0.3s ease);
 		}
 	}
 	textarea, input, button { outline: none; }

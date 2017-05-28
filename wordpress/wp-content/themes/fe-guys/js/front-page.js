@@ -272,6 +272,25 @@
 	}
 /*=====================  End of Tech Section  ======================*/
 
+/*==================================
+=            Init Forms            =
+==================================*/
+	function initForms() {
+		var selectors = '.fe-form input, .fe-form textarea';
+		$(selectors).focus(function() {
+			$(this).addClass('input-focused');
+			$(this).closest('li').find('i').addClass('input-focused');
+		});
+
+		$(selectors).blur(function() {
+			if (! $(this).val() ) {
+				$(this).removeClass('input-focused');
+				$(this).closest('li').find('i').removeClass('input-focused');
+			}
+		});
+	}
+
+
 
 	
 
@@ -286,6 +305,7 @@
 		initAllSliders();
 		handleProjectAssetNavigation();
 		initTechTags();
+		initForms();
 
 		// getTechByCategory();
 	});
