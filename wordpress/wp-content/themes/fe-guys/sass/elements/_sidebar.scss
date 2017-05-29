@@ -11,17 +11,52 @@
 	padding:2rem;
 	text-align:left;
 
+	h6 {
+		border-bottom: 1px solid #D0D0D0;
+		padding-bottom:0.8rem;
+	}
+
 
 	ul {
 		list-style-type:none;
 		padding:0; margin:0;
 		li {
 			margin-bottom:0.7rem;
+			a {
+				color:$color__black;
+				font-size: 0.88rem;
+				line-height: 1.19rem;
+			}
+			.post-date {
+				font-size: 0.75rem;
+				line-height: 1.06rem;
+				color:$color__black;
+			}
 		}
 	}
 
 	.post-date {
 		display:block;
+	}
+
+	#categories-2 ul {
+		width: 100%; 
+		text-align: center;
+		li {
+			display: inline-block;
+    		margin-right: 1rem;
+    		background-color: #FF7575;
+		    padding: 0.21em 1.8rem;
+		    border-radius: 2rem;
+			a {
+		    font-size: 0.88rem;
+		    color: $color__text__dark;
+			}	
+		}
+	}
+
+	#text-2 {
+		.textwidget {text-align:center;}
 	}
 }
 
