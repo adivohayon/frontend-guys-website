@@ -56,10 +56,10 @@
 								</div>
 							<?php endif;?>
 						</div>
-						<div class="project-description content-padding">
+						<div class="project-description content-padding-left">
 							<?php the_content(); ?>	
 						</div>
-						<div class="project-assets-navigation content-padding">
+						<div class="project-assets-navigation content-padding-left">
 							<hr />
 							<ul>
 								<?php

@@ -32,8 +32,16 @@ img.landscape, .landscape img {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f2f2f', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 }
 
-.content-padding {
+.content-padding-left {
 	padding-left:$content-padding;
+	padding-right:$content-padding / 2;
+}
+.content-padding-right {
+	padding-right:$content-padding;
+	padding-left:$content-padding / 2;
+}
+.content-padding-top {
+	padding-top: $content-padding;
 }
 .menu-padding {
 	padding-top:$height__header;

@@ -41,7 +41,7 @@ $obj = get_queried_object();
 					</div>
 				</header>
 				<div class="row">
-					<div class="col-xs-9 content-padding">
+					<div class="col-xs-9 content-padding-left">
 						<?php
 							/* Start the Loop */
 							while ( have_posts() ) : the_post();

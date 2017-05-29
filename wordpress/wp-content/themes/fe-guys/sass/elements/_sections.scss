@@ -328,8 +328,30 @@
 
 		}
 	}
-
+	
+	/*====================================================
+	=            Your Project / Request Quote            =
+	====================================================*/
 	&#section-your-project {
+
+		.visuals-container {
+			text-align:center;
+
+			img {
+				display:block;
+				&.venn-diagram {
+					width: 80%;
+					margin: auto;
+					max-width:26rem;
+				}
+				&.logo {
+					width: 60%;
+				    margin: 3vw auto 0;
+				    max-width: 19rem;
+				}
+			}
+		}
+
 		form.fe-form {
 			textarea {margin-bottom:0.4rem;}
 		}
