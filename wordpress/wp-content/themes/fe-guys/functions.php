@@ -157,6 +157,11 @@ add_action( 'wp_enqueue_scripts', 'fe_guys_scripts' );
 require get_template_directory() . '/inc/filters.php';
 
 /**
+ * Walkers
+ */
+require get_template_directory() . '/inc/walkers.php';
+
+/**
  * Custom Menu
  */
 require get_template_directory() . '/inc/menu.php';

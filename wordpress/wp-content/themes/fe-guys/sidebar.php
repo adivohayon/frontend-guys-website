@@ -14,6 +14,22 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 <aside id="secondary" class="widget-area" role="complementary">
 	<div class="sidebar">
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		<?php
+			$args = array(
+				'before_title' => '<h6>',
+				'after_title' => '</h6>'
+			);
+			$instance = array(
+				'title' => 'Latest Posts',
+				'number' => 5
+			);
+
+			the_widget('WP_Widget_Recent_Posts', $instance, $args);
+			walk_post_categories(1);
+
+		?>
+		Looking for Design and Development Help?
+		<button class="btn-primary">Request Quote</button>
+		<?php //dynamic_sidebar( 'sidebar-1' ); ?>
 	</div>
 </aside><!-- #secondary -->
