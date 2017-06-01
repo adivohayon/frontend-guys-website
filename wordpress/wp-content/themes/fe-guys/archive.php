@@ -15,30 +15,26 @@ $obj = get_queried_object();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<div id="archive" class="menu-padding">
-				<header class="row">
-					<div class="col-xs-12">
-						<div class="header-image">
-							<?php 
-								if (is_category()) {
-									echo do_shortcode('[wp_custom_image_category  
-										size="full" 
-										term_id="' . $obj->cat_ID . '" 
-										alt="'. $obj->cat_name . '"
-									]');
-								}
+				<header class="blog-header row">
+					<div class="header-image">
+						<?php 
+							if (is_category()) {
+								echo do_shortcode('[wp_custom_image_category  
+									size="full" 
+									term_id="' . $obj->cat_ID . '" 
+									alt="'. $obj->cat_name . '"
+								]');
+							}
 
-								if (is_author()) {
-									the_author_image($obj->ID); 
+							if (is_author()) {
+								the_author_image($obj->ID); 
 
-								}
-							?>
-						</div>
-						<div class="header-title">
-							<h2><span class="green"><?php echo is_author() ? $obj->display_name . '\'s' :  $obj->cat_name; ?></span> Archive</h2>
-						</div>
-
-						
+							}
+						?>
 					</div>
+					<div class="header-title">
+						<h2><span class="green"><?php echo is_author() ? $obj->display_name . '\'s' :  $obj->cat_name; ?></span> Archive</h2>
+					</div>					
 				</header>
 				<div class="row">
 					<div class="col-xs-9 content-padding-left">

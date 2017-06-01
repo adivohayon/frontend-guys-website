@@ -10,8 +10,23 @@
  */
 
 ?>
-
+	
 	</div><!-- #content -->
+	<footer>
+		<?php
+			if (is_single()) {
+				echo '<div>' . next_post_link() . '</div>';
+			}
+		?>
+		<div class="footer-content">
+			footer content
+		</div>
+		<?php
+			if (is_single()) {
+				echo '<div>' . next_post_link() . '</div>';
+			}
+		?>
+	</footer>
 
 	<!-- footer -->
 </div><!-- #page -->
