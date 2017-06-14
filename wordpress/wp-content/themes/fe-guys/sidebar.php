@@ -16,7 +16,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	<div class="sidebar">
 		<?php
 			$args = array(
-				'before_title' => '<h6>',
+				'before_title' => '<h6 class="seperator">',
 				'after_title' => '</h6>'
 			);
 			$instance = array(
@@ -25,11 +25,15 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			);
 
 			the_widget('WP_Widget_Recent_Posts', $instance, $args);
+			echo '<ul>';
 			walk_post_categories(1);
+			echo '</ul>';
 
 		?>
-		Looking for Design and Development Help?
-		<button class="btn-primary">Request Quote</button>
+		<div class="sidebar-request-quote">
+			<h5>Looking for Design and Development Help?</h5>
+			<button class="btn-primary">Request Quote</button>
+		</div>
 		<?php //dynamic_sidebar( 'sidebar-1' ); ?>
 	</div>
 </aside><!-- #secondary -->

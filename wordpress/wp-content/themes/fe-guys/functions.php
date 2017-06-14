@@ -145,6 +145,10 @@ function fe_guys_scripts() {
 		));
 	}
 
+	if (is_author() || is_single()) {
+		wp_enqueue_script('blog', get_template_directory_uri() . '/js/blog.js', array('jquery'));
+	}
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
