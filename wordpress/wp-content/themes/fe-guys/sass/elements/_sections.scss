@@ -363,16 +363,18 @@
 	=            From Our Blog            =
 	=======================================*/
 	&#section-from-our-blog {
-		h2 {margin-bottom:3rem;}
-		.row{background-color:$color__background-accent;}
+		padding-top: 1.5rem;
+		h2 {margin-bottom:1.5rem;}
 		.latest-posts {
-			background-color: white;
-		    padding-top: 2rem;
+		    padding: 2rem;
 			.post-container {
 				width: 60%;
 		    	float:left;
 		    	padding-left:1rem;
-		    	&.full-width {width:100%;}
+		    	&.full-width {
+		    		width:100%;
+		    		padding-left: 42%;
+		    	}
 		    	h5 {
 		    		font-weight:600;
 		    		margin-bottom: 0.4rem;

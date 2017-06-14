@@ -5,8 +5,8 @@
 
 <div class="row section" id="section-from-our-blog">
 	<div class="col-xs-12">
-		<div class="latest-posts">
-			<h2>From Our <span class="green">Blog</span></h2>
+		<h2>From Our <span class="green">Blog</span></h2>
+		<div class="latest-posts light-gray-bg">
 			<?php
 				$args = array(
 					'numberposts' => 4,
