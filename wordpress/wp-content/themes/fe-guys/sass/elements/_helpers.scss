@@ -51,3 +51,12 @@ img.landscape, .landscape img {
 	border-bottom: 1px solid #D0D0D0;
 	padding-bottom:0.8rem;
 }
+
+.z-front {
+	z-index:100;
+	position:relative;
+}
+
+.shadow-z1 {
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}

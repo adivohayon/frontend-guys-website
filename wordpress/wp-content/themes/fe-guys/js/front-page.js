@@ -7,7 +7,7 @@
 		$('.site-header').hide();
 		$('#fullpage').fullpage({
 			verticalCentered: false,
-			anchors: ['hello', 'design-and-development', 'latest-projects', 'tech', 'your-project', 'contact-us'],
+			anchors: ['hello', 'design-and-development', 'latest-projects', 'tech', 'your-project', 'blog', 'contact-us'],
 			resize: false,	
 			// navigation:true,
 			menu: '#primary-menu',

@@ -17,6 +17,17 @@
 	padding:2rem;
 	$input_color: #E6E6E6;
 
+	header {
+		font-size: 1rem;
+		text-align: center;
+		width: 80%;
+		margin: auto;
+		hr {
+			width: 70%;
+			background-color: black;
+			margin:1rem auto;
+		}
+	}
 	.row {
 		& > div {
 			padding-right:1rem;
