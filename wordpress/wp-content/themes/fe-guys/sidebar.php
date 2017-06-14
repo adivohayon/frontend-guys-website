@@ -25,7 +25,9 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			);
 
 			the_widget('WP_Widget_Recent_Posts', $instance, $args);
+			echo '<ul>';
 			walk_post_categories(1);
+			echo '</ul>';
 
 		?>
 		Looking for Design and Development Help?

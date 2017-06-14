@@ -19,7 +19,7 @@
 		=            Desktop-Screen            =
 		=====================================-->
 		<div class="visual desktop-screen">
-			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/large-screen.svg' ?>" alt="Large Monitor">
+			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/desktop.svg' ?>" alt="Large Monitor">
 			<div class="screen-content">
 				<div class="spinner">
 					<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>

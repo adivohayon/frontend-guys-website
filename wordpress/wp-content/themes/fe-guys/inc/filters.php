@@ -73,6 +73,8 @@
 						$screenshot_screen = wp_get_attachment_image_src( $id, 'desktop-screenshots' );
 						$screenshot_screen_src = $screenshot_screen[0];
 						$image['screen_src'] = $screenshot_screen_src;
+						$image['device_type'] = get_field('device_type', $id);
+						
 					}
 				}
 
@@ -94,13 +96,27 @@
 					}
 				}
 		
-
+				/*===================================
+				=            Styleguides            =
+				===================================*/
+				$styleguide_images = acf_photo_gallery('styleguide_images', get_the_ID());
+				if( count($styleguide_images) ) {
+					foreach($styleguide_images as &$image) {
+						$id = $image['id'];
+						$screenshot_screen = wp_get_attachment_image_src( $id, 'desktop-screenshots' );
+						$screenshot_screen_src = $screenshot_screen[0];
+						$image['screen_src'] = $screenshot_screen_src;
+						$image['device_type'] = get_field('device_type', $id);
+						
+					}
+				}
 
 				//Preparing assets objects which includes all assets
 				$assets = array(
 					'postId' => get_the_ID(),
 					'screenshots' => $screenshots,
-					'videos' => $videos
+					'videos' => $videos,
+					'styleguide_images' => $styleguide_images
 				);
 
 				//If there's an asset_type, filter only those assets
@@ -120,7 +136,9 @@
 		
 	}
 
-	
+	/*=====================================
+	=            oEmbed Filter            =
+	=====================================*/
 	function imp_custom_youtube_querystring( $html, $url, $args ) {
 		if(strpos($html, 'youtube')!= FALSE) {
 			parse_str( parse_url( $url, PHP_URL_QUERY ), $query_array );
@@ -147,6 +165,20 @@
 		return $result;
 	}
 	add_filter('oembed_result', 'imp_custom_youtube_querystring', 10, 3);
+
+	/*===========================================
+	=            Gallery Extra Field            =
+	===========================================*/
+	//Create extra fields called Altnative Text and Custom Classess
+	function my_extra_gallery_fields( $args, $attachment_id, $field ){
+	    // $args['alt'] = array('type' => 'text', 'label' => 'Altnative Text', 'name' => 'alt', 'value' => get_field($field . '_alt', $attachment_id) ); // Creates Altnative Text field
+	    $args['device_type'] = array('type' => 'text', 'label' => 'Device Type', 'name' => 'device_type', 'value' => get_field('device_type', $attachment_id) ); // Creates Custom Classess field
+
+	    // $args['device_type'] = array('type' => 'text', 'label' => 'Custom Classess', 'name' => 'device_type', 'value' => get_field($field . '_class', $attachment_id) ); // Creates Custom Classess field
+	    return $args;
+	}
+	add_filter( 'acf_photo_gallery_image_fields', 'my_extra_gallery_fields', 10, 3 );
+
 	
 
 

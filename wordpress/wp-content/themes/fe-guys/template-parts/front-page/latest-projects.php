@@ -37,6 +37,8 @@
 					array_push($videos, get_field("video-4"));
 				}
 
+				$styleguide_images = acf_photo_gallery('styleguide_images', $post->ID);
+
 	?>
 				<div class="slide project" id="project-<?php echo $post->ID; ?>" data-anchor="<?php echo $post->post_name; ?>">
 					<div class="col-xs-5 project-details">
@@ -57,7 +59,10 @@
 							<?php endif;?>
 						</div>
 						<div class="project-description content-padding-left">
-							<?php the_content(); ?>	
+							<?php the_content(); ?>
+							<?php
+								echo get_field('device_type', 88);
+							?>	
 						</div>
 						<div class="project-assets-navigation content-padding-left">
 							<hr />
@@ -71,6 +76,10 @@
 									if ( count($videos) ) {
 										echo '<li><a class="asset-navigation-item" href="project/videos" title="Videos" data-attr="videos">Videos</a></li>';
 									}
+
+									if ( count($styleguide_images) ) {
+										echo '<li><a class="asset-navigation-item" href="project/styleguide" title="Styleguide" data-attr="styleguide_images">Styleguide</a></li>';
+									}
 								?>
 							</ul>
 						</div>
@@ -82,7 +91,7 @@
 						
 
 						<div class="visual desktop-screen">
-							<img class="display-screen large-screen" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/large-screen.svg' ?>" alt="Large Monitor">
+							<img class="display-screen large-screen" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/desktop.svg' ?>" alt="Large Monitor">
 							<div class="screen-content swiper-container">
 								<div class="spinner">
 									<div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>

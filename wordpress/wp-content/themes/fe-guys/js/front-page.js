@@ -17,10 +17,20 @@
 			afterSlideLoad: function(anchorLink, sectionIndex, slideAnchor, slideIndex) {
 				if (anchorLink == 'latest-projects') {
 					currentProjectSlide = slideIndex;
+
+					/*====================================================================
+					=            Load Screenshots of first project as Default            =
+					====================================================================*/
+					var projectDomId = $('#section-latest-projects .project.active').attr('id');
+					var projectId = projectDomId.substring(projectDomId.indexOf('-') + 1);
+					//Replace assets in screen
+					switchAssets('screenshots', projectId);
+					$('#section-latest-projects .project.active .asset-navigation-item').first().addClass('active');
 				}
 			},
 			onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){
 				if (anchorLink == 'latest-projects') {
+					
 				}
 			},
 			onLeave: function(index, nextIndex){
@@ -57,6 +67,19 @@
 	//Project Display Slider
 	var projectDisplaySlider;
 	var currentAssetTypeTitle = 'Screenshots';
+	
+	var currentDeviceType = 'desktop';
+	function changeDeviceType(newDeviceType, swiper) {
+		$(swiper.container).parent().removeClass(currentDeviceType + '-screen');
+		$(swiper.container).parent().addClass(newDeviceType + '-screen');
+
+		var currentSrc = $(swiper.container).parent().find('> img').attr('src');
+		var newSrc = currentSrc.slice(0, currentSrc.lastIndexOf('/') + 1) + newDeviceType + '.svg';
+		$(swiper.container).parent().find('> img').attr('src', newSrc);
+
+		currentDeviceType = newDeviceType;
+	}
+
 	function setupProjectDisplaySlider() {
 		projectDisplaySlider = new Swiper ('.project-display .swiper-container', {
 			// Optional parameters
@@ -72,6 +95,14 @@
 						'(<span class="' + currentClassName + '"></span>' +
 						' / ' +
 						'<span class="' + totalClassName + '"></span>)';
+			},
+			onSlideChangeStart: function(swiper){
+				var deviceType = $(swiper.container).find('.swiper-slide-next').attr('data-device-type');
+				deviceType = deviceType ? deviceType : 'desktop';
+				// changeDeviceType(deviceType, swiper);
+
+
+				
 			}
 		});
 
@@ -110,13 +141,15 @@
 	function switchAssets(assetType, projectId) {
 		//Get assets by asset type and project Id
 		getAssetsByProject(projectId, assetType).done(function(assets) {
-			// console.log('getAssetsByProject', assets);
+			console.log('getAssetsByProject', assets);
 
 			/*====================================
 			=            Reset Slider            =
 			====================================*/
 			//Select current slider
-			var slider = currentProjectSlide > 0 ? projectDisplaySlider[currentProjectSlide] : projectDisplaySlider;
+			var numberOfSlides = $('#section-latest-projects .slide.project').length;
+			var slider = numberOfSlides > 0 ? projectDisplaySlider[currentProjectSlide] : projectDisplaySlider;
+			// console.log(numberOfSlides);
 			if (slider) {
 				slider.removeAllSlides();
 			}
@@ -128,13 +161,25 @@
 			assets.forEach(function(asset) {
 				var slide = '<div class="swiper-slide asset">';
 
+				if (asset.device_type) {
+					slide = '<div class="swiper-slide asset" data-device-type="' + asset.device_type + '">';	
+				} 
+
 				switch (assetType) {
 					case 'screenshots':
 						slide += '<img src="' + asset.screen_src + '" alt="' + asset.title + '" title="' + asset.title +'">';
+						if (asset.device_type) {
+							
+							console.log(asset.device_type);
+						}
 						break;
 					case 'videos':
 						slide += '<div class="youtube-embed">' + asset + '</div>';
 						break;
+					case 'styleguide_images':
+						slide += '<img class="white-bg" src="' + asset.screen_src + '" alt="' + asset.title + '" title="' + asset.title +'">';
+						break;
+
 				}
 				slide += '</div>';
 				newSlides.push(slide);
