@@ -12,7 +12,7 @@
 ?>
 	
 	</div><!-- #content -->
-	<footer>
+	<footer id="site-footer">
 		<?php
 			if (is_single()) {
 				echo '<div>' . next_post_link() . '</div>';

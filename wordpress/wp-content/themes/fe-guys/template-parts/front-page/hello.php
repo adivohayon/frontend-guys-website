@@ -3,8 +3,8 @@
 =============================-->
 <div 
 	class="row section" id="section-hello" 
-	style="background-image: url(<?php echo get_stylesheet_directory_uri() . '/assets/images/bg-table-day.jpg' ?>
-);">
+	style="background-image: url(<?php echo get_stylesheet_directory_uri() . '/assets/images/bg-table-day.jpg' ?>);"
+>
 	<div class="scrim-top"></div>
 	<div class="scrim-bottom"></div>
 	<div class="col-xs-12">

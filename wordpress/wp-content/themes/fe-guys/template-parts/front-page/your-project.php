@@ -10,7 +10,7 @@
 				<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/frontend-guys-logo-dark_bg.svg' ?>" alt="Frontend Guys Logo" class="logo">
 			</div>
 			<div class="col-xs-7 content-padding-right">
-				<form action="" class="fe-form shadow-z1">
+				<form action="" class="fe-form shadow shadow-z2">
 					<?php echo do_shortcode('[contact-form-7 id="68" title="Request Quote"]'); ?>
 				</form>
 			</div>

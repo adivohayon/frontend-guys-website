@@ -53,4 +53,13 @@ header.blog-header {
 			line-height: 1.6;
 		}
 	}
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	
+	&.blog-header-small {
+		height: 4rem;
+	    position: fixed;
+	    width: 100%;
+	    margin-bottom: 4rem;
+	    top: 3.9rem;
+	}
 }

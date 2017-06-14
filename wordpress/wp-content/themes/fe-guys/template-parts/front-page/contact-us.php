@@ -13,7 +13,7 @@
 			<!-- <div class="col-xs-5 pull-right content-padding-right"> -->
 			<div class="col-xs-12">
 				
-				<form action="" class="fe-form shadow-z1">
+				<form action="" class="fe-form shadow shadow-z2">
 					<header>
 						Fill in the form below and we’ll get back to you!
 						<hr>

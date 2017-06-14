@@ -13,7 +13,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <aside id="secondary" class="widget-area" role="complementary">
-	<div class="sidebar">
+	<div class="sidebar shadow shadow-z1">
 		<?php
 			$args = array(
 				'before_title' => '<h6 class="seperator">',

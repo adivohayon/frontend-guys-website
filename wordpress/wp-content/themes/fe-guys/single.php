@@ -16,7 +16,7 @@ get_header(); ?>
 			while ( have_posts() ) : the_post();
 		?>
 			<div id="blog-post" class="menu-padding">
-				<header class="blog-header row">
+				<header class="blog-header row ">
 					<?php 
 						if ( has_post_thumbnail() ) {
 							echo '<div class="header-image">';
@@ -42,7 +42,7 @@ get_header(); ?>
 				
 				</header>
 				<div class="row">
-					<div class="col-xs-9 content-padding-left">
+					<div class="col-xs-9 content-padding-left sticky">
 						<?php
 							/* Start the Loop */
 
@@ -56,7 +56,7 @@ get_header(); ?>
 							
 						?>
 					</div>
-					<div class="col-xs-3">
+					<div class="col-xs-3 sticky">
 						<?php get_sidebar(); ?>
 					</div>
 				</div>
